@@ -22,11 +22,11 @@ class FirestoreDocumentLiveData(
         listenerRegistration?.remove()
     }
 
-    override fun onEvent(snapshot: DocumentSnapshot?, e: FirebaseFirestoreException?) {
+    override fun onEvent(snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException?) {
         if (snapshot != null) {
             postValue(DocumentSnapshotOrException(snapshot.data, null))
-        } else if (e != null) {
-            postValue(DocumentSnapshotOrException(null, e))
+        } else if (exception != null) {
+            postValue(DocumentSnapshotOrException(null, exception))
         }
     }
 
