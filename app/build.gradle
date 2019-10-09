@@ -5,6 +5,18 @@ apply plugin: 'kotlin-kapt'
 apply from: '../config_module.gradle'
 apply from: '../base_libraries.gradle'
 
+android {
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+}
+
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
