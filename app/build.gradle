@@ -27,7 +27,6 @@ dependencies {
 
     testImplementation deps.test.extJunit
 
-
 }
 
 //apply plugin: deps.gmsServices.plugin

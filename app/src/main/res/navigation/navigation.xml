@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/historical">
+
+    <fragment
+        android:id="@+id/historical"
+        android:name="com.game.bfinder.CategoriesFragment"
+        android:label="fragment_list_movies"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/fade_out"
+        tools:layout="@layout/fragment_categories">
+
+    </fragment>
+
+    <activity
+        android:id="@+id/mainAppActivity"
+        android:name="com.game.bfinder.MainActivity"
+        tools:layout="@layout/activity_main" />
+
+</navigation>
