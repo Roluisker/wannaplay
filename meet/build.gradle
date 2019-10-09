@@ -6,6 +6,10 @@ apply from: '../config_module.gradle'
 
 android {
 
+    dataBinding {
+        enabled true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
