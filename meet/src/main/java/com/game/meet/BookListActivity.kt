@@ -8,10 +8,11 @@ import com.sc.convert.databinding.ActivityBookListBinding
 
 class BookListActivity : BaseActivity() {
 
+    private lateinit var binding: ActivityBookListBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityBookListBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_book_list)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_book_list)
         binding.lifecycleOwner = this
     }
 

@@ -7,12 +7,12 @@ apply from: '../base_libraries.gradle'
 
 android {
 
-    testOptions {
-        unitTests.returnDefaultValues = true
-    }
-
     dataBinding {
         enabled true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 
     dynamicFeatures = [":meet"]
