@@ -1,0 +1,12 @@
+ext {
+    dependencies {
+        implementation deps.navigation.fragmentKtx
+        implementation deps.images.picasso
+        implementation deps.support.appCompat
+        implementation deps.support.androidxCore
+        implementation deps.support.constraint
+        implementation deps.desing.material
+        implementation deps.test.junit
+        implementation deps.general.instantApp
+    }
+}

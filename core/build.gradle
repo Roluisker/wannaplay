@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -9,25 +9,30 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':core')
+    api deps.log.timber
+    implementation deps.kotlin.stdlib
+    api deps.lifecycle.extensions
+    api deps.lifecycle.reactStreams
+    implementation deps.data.gsonCore
 
+    implementation deps.okHttp3.core
+
+    api deps.support.androidxFragment
+
+    api deps.lifecycle.extensions
     annotationProcessor deps.lifecycle.compiler
 
     testImplementation deps.test.junit
     testImplementation deps.test.archCoreTest
-
     androidTestImplementation deps.test.supportTestRunner
 
     debugImplementation deps.test.androidxFragmentTest
-
     androidTestImplementation deps.test.androidxTestEspresso
     androidTestImplementation deps.test.androidxTestRunner
     androidTestImplementation deps.test.androidxTestRules
     androidTestImplementation deps.test.extJunit
-
     testImplementation deps.test.extJunit
 
+    testImplementation 'org.robolectric:robolectric:4.2'
 
 }
-
-//apply plugin: deps.gmsServices.plugin
