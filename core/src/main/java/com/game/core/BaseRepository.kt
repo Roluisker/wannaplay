@@ -1,3 +1,3 @@
 package com.game.core
 
-abstract class BaseRepository
+open class BaseRepository

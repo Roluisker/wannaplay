@@ -1,47 +1,40 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.dynamic-feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply from: '../config_module.gradle'
-apply from: '../base_libraries.gradle'
 
 android {
 
-    testOptions {
-        unitTests.returnDefaultValues = true
-    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
 
-    dataBinding {
-        enabled true
-    }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
 
-    dynamicFeatures = [":meet"]
+    }
 
 }
 
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation project(':core')
-
-    annotationProcessor deps.lifecycle.compiler
+    implementation project(':app')
 
     testImplementation deps.test.junit
     testImplementation deps.test.archCoreTest
-
     androidTestImplementation deps.test.supportTestRunner
 
     debugImplementation deps.test.androidxFragmentTest
-
     androidTestImplementation deps.test.androidxTestEspresso
     androidTestImplementation deps.test.androidxTestRunner
     androidTestImplementation deps.test.androidxTestRules
     androidTestImplementation deps.test.extJunit
-
     testImplementation deps.test.extJunit
 
 }
-
-//apply plugin: deps.gmsServices.plugin
-
