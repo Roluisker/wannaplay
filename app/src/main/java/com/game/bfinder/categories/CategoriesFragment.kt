@@ -55,7 +55,7 @@ class CategoriesFragment : BaseFragment() {
     private inner class CategoryItemClickListener :
         CategoriesAdapter.ItemClickListener<CategoryViewHolder> {
         override fun onItemClick(holder: CategoryViewHolder) {
-            Timber.d(holder.title)
+            Timber.d(holder.binding.category!!.title)
         }
     }
 
