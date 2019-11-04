@@ -41,6 +41,7 @@ dependencies {
     androidTestImplementation deps.test.extJunit
 
     testImplementation deps.test.extJunit
+    implementation 'androidx.paging:paging-runtime-ktx:2.1.0'
 
 }
 

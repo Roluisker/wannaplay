@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
+
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.game.bfinder.R
+import com.game.bfinder.categories.adapter.CategoriesAdapter
+import com.game.bfinder.categories.adapter.CategoryViewHolder
 
 import com.game.core.AppConstants
 import com.game.core.BaseFragment
@@ -15,9 +18,7 @@ import kotlinx.android.synthetic.main.fragment_categories.*
 import com.game.bfinder.databinding.FragmentCategoriesBinding
 
 import com.game.bfinder.categories.repository.CategoriesRepositoryImpl
-import com.game.core.model.Category
 import timber.log.Timber
-import java.util.ArrayList
 
 class CategoriesFragment : BaseFragment() {
 
@@ -29,23 +30,33 @@ class CategoriesFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val testObserver = Observer<ArrayList<Category>> { liveResponse ->
-            liveResponse.forEach {
-                Timber.d("%s%s", it.title + "", it.id)
-            }
-        }
-
-        categoryViewModel.categories.observe(this, testObserver)
-
         binding =
             DataBindingUtil.inflate(
                 inflater,
                 R.layout.fragment_categories, container, false
             )
+
+        binding.viewCategories.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(activity)
+            adapter = CategoriesAdapter(
+                categoryViewModel,
+                this@CategoriesFragment,
+                CategoryItemClickListener()
+            )
+        }
+
         binding.lifecycleOwner = this
 
         return binding.root
 
+    }
+
+    private inner class CategoryItemClickListener :
+        CategoriesAdapter.ItemClickListener<CategoryViewHolder> {
+        override fun onItemClick(holder: CategoryViewHolder) {
+            Timber.d(holder.title)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
