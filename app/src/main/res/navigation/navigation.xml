@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/historical"
-        android:name="com.game.bfinder.CategoriesFragment"
+        android:name="com.game.bfinder.categories.CategoriesFragment"
         android:label="fragment_list_movies"
         app:enterAnim="@android:anim/fade_in"
         app:exitAnim="@android:anim/fade_out"
