@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.game.bfinder.R
 import com.game.bfinder.categories.adapter.CategoriesAdapter
 import com.game.bfinder.categories.adapter.CategoryViewHolder
@@ -36,20 +35,22 @@ class CategoriesFragment : BaseFragment() {
                 R.layout.fragment_categories, container, false
             )
 
+        initCategories(binding)
+
+        binding.lifecycleOwner = this
+
+        return binding.root
+    }
+
+    private fun initCategories(binding: FragmentCategoriesBinding) {
         binding.viewCategories.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(activity)
             adapter = CategoriesAdapter(
                 categoryViewModel,
                 this@CategoriesFragment,
                 CategoryItemClickListener()
             )
         }
-
-        binding.lifecycleOwner = this
-
-        return binding.root
-
     }
 
     private inner class CategoryItemClickListener :
@@ -65,7 +66,6 @@ class CategoriesFragment : BaseFragment() {
         button.setOnClickListener {
             openModule(AppConstants.MEET_MODULE_PATH)
         }
-
     }
 
 }

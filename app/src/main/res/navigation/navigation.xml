@@ -3,15 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/historical">
+    app:startDestination="@id/categories">
 
     <fragment
-        android:id="@+id/historical"
+        android:id="@+id/categories"
         android:name="com.game.bfinder.categories.CategoriesFragment"
         android:label="fragment_list_movies"
         app:enterAnim="@android:anim/fade_in"
         app:exitAnim="@android:anim/fade_out"
         tools:layout="@layout/fragment_categories">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/books"
+        android:name="com.game.bfinder.books.BooksFragment"
+        android:label="fragment_list_books"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/fade_out"
+        tools:layout="@layout/fragment_books">
 
     </fragment>
 

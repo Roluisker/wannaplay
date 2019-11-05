@@ -14,7 +14,7 @@
             android:text="Button" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/viewCategories"
+            android:id="@+id/viewBooks"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
@@ -24,11 +24,12 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:padding="4dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="2" />
 
     </LinearLayout>
 

@@ -11,7 +11,6 @@ class CategoryViewHolder(val binding: CategoryListItemBinding) :
         binding.root.setOnClickListener(this)
     }
 
-    var title: String? = null
     var itemClickListener: CategoriesAdapter.ItemClickListener<CategoryViewHolder>? = null
 
     override fun onClick(v: View) {

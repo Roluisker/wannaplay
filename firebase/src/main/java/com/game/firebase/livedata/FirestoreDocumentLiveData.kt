@@ -1,14 +1,14 @@
 package com.game.firebase.livedata
 
 import com.game.firebase.response.FirebaseApiResponse
-import com.game.core.FirebaseExecutor
+
 import com.google.firebase.firestore.*
 
 typealias DocumentSnapshotOrException = FirebaseApiResponse<Map<String, Any>?, FirebaseFirestoreException?>
 
 class FirestoreDocumentLiveData(
     private val ref: DocumentReference,
-    private val executors: com.game.core.FirebaseExecutor
+    private val executors: FirebaseExecutor
 ) :
     LingeringLiveData<DocumentSnapshotOrException>(), EventListener<DocumentSnapshot> {
 

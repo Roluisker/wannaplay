@@ -1,4 +1,4 @@
-package com.game.core
+package com.game.firebase.livedata
 
 import android.os.Handler
 import android.os.Looper
