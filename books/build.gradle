@@ -8,12 +8,22 @@ android {
     dataBinding {
         enabled true
     }
+    buildTypes {
+        release {
+            minifyEnabled false
+            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //implementation project(':core')
     implementation project(':app')
+    //implementation project(':firebase')
 
     testImplementation deps.test.junit
     testImplementation deps.test.archCoreTest

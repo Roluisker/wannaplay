@@ -15,7 +15,7 @@ android {
         unitTests.returnDefaultValues = true
     }
 
-    dynamicFeatures = [":meet"]
+    dynamicFeatures = [":meet", ":books"]
 
 }
 
@@ -23,7 +23,8 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':core')
+    api project(':core')
+    //implementation project(':books')
 
 
     annotationProcessor deps.lifecycle.compiler

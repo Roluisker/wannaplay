@@ -6,7 +6,6 @@ apply from: '../config_module.gradle'
 apply from: '../base_libraries.gradle'
 
 dependencies {
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api deps.log.timber
@@ -34,5 +33,4 @@ dependencies {
     testImplementation deps.test.extJunit
 
     testImplementation 'org.robolectric:robolectric:4.2'
-
 }

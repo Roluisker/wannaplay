@@ -1,2 +1,2 @@
-include ':app', ':core', ':firebase', ':meet'
+include ':app', ':core', ':firebase', ':meet', ':books'
 rootProject.name='Bfinder'

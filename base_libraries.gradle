@@ -3,8 +3,8 @@ ext {
         implementation deps.navigation.fragmentKtx
         implementation deps.images.picasso
         api deps.support.appCompat
-        implementation deps.support.androidxCore
-        implementation deps.support.constraint
+        api deps.support.androidxCore
+        api deps.support.constraint
         implementation deps.desing.material
         implementation deps.test.junit
         implementation deps.general.instantApp

@@ -5,7 +5,6 @@ import android.net.Uri
 import androidx.fragment.app.Fragment
 
 fun Fragment.openModule(url: String) {
-
     Intent(
         Intent.ACTION_VIEW,
         Uri.parse(url)
@@ -14,5 +13,4 @@ fun Fragment.openModule(url: String) {
     }.let {
         startActivity(it)
     }
-
 }

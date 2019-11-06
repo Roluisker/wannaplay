@@ -1,4 +1,4 @@
-package com.game.bfinder.books
+package com.game.books
 
 import com.game.core.BaseViewModel
 

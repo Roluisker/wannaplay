@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Bfinder</string>
     <string name="title_meet">Meeting</string>
+    <string name="title_books">Books</string>
 </resources>
