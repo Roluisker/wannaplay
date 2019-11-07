@@ -1,12 +1,12 @@
 ext {
     dependencies {
         implementation deps.navigation.fragmentKtx
-        implementation deps.images.picasso
+        api deps.images.picasso
         api deps.support.appCompat
         api deps.support.androidxCore
         api deps.support.constraint
-        implementation deps.desing.material
-        implementation deps.test.junit
+        api deps.desing.material
+        api deps.test.junit
         implementation deps.general.instantApp
     }
 }

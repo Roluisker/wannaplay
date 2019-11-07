@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.game.bfinder.MainActivity
 //import com.game.bfinder.databinding.FragmentBooksBinding
 
 
 import com.game.core.BaseFragment
 
 class BooksFragment : BaseFragment() {
-
 
     //private lateinit var binding: FragmentBooksBinding
 /*
