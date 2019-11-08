@@ -1,10 +1,13 @@
 package com.game.books.repository
 
-class BooksRepositoryImpl : BooksRepository {
+import androidx.lifecycle.LiveData
+import com.game.core.BaseRepository
+import com.game.core.model.Book
+import com.game.core.model.livedata.BooksLiveData
+import com.game.core.extensions.defaultBooks
 
-    /*
-    override fun fetchBooks(): LiveData<ArrayList<Book>> {
+class BooksRepositoryImpl : BaseRepository(), BooksRepository {
 
-    }*/
-
+    override fun fetchBooks(): LiveData<ArrayList<Book>> =
+        BooksLiveData.create(defaultBooks())
 }

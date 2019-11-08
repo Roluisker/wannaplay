@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/meet/meet.iml" filepath="$PROJECT_DIR$/meet/meet.iml" />
       <module fileurl="file://$PROJECT_DIR$/wannaplay-Bfinder.iml" filepath="$PROJECT_DIR$/wannaplay-Bfinder.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/wannaplay-app.iml" filepath="$PROJECT_DIR$/app/wannaplay-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/books/wannaplay-books.iml" filepath="$PROJECT_DIR$/books/wannaplay-books.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/wannaplay-core.iml" filepath="$PROJECT_DIR$/core/wannaplay-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/firebase/wannaplay-firebase.iml" filepath="$PROJECT_DIR$/firebase/wannaplay-firebase.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet/wannaplay-meet.iml" filepath="$PROJECT_DIR$/meet/wannaplay-meet.iml" />

@@ -14,5 +14,4 @@ class CategoriesLiveData private constructor(categories: ArrayList<Category>) :
         fun create(categories: ArrayList<Category>): LiveData<ArrayList<Category>> =
             CategoriesLiveData(categories)
     }
-
 }

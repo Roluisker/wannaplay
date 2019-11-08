@@ -1,17 +1,17 @@
-package com.game.bfinder.categories.adapter
+package com.game.books.adapter
 
 import android.view.View
-import com.game.bfinder.databinding.CategoryListItemBinding
+import com.game.books.databinding.BookListItemBinding
 import com.game.core.BaseOnClickViewHolder
 
-class CategoryViewHolder(val binding: CategoryListItemBinding) :
+class BooksViewHolder(val binding: BookListItemBinding) :
     BaseOnClickViewHolder(binding.root) {
 
     init {
         binding.root.setOnClickListener(this)
     }
 
-    var itemClickListener: CategoriesAdapter.ItemClickListener<CategoryViewHolder>? = null
+    var itemClickListener: BooksAdapter.ItemClickListener<BooksViewHolder>? = null
 
     override fun onClick(v: View) {
         itemClickListener?.onItemClick(this)

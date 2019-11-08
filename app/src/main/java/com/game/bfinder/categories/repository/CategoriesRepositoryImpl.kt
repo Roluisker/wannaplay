@@ -6,12 +6,11 @@ import com.game.core.BaseRepository
 import com.game.core.extensions.defaultCategories
 import com.game.core.model.Category
 import com.game.core.model.livedata.CategoriesLiveData
-import java.util.ArrayList
+import kotlin.collections.ArrayList
 
 class CategoriesRepositoryImpl :
     BaseRepository(), CategoriesRepository {
 
     override fun fetchCategories(): LiveData<ArrayList<Category>> =
         CategoriesLiveData.create(defaultCategories())
-
 }

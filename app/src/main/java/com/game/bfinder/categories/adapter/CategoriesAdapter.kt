@@ -53,5 +53,4 @@ class CategoriesAdapter(
     interface ItemClickListener<CategoryViewHolder> {
         fun onItemClick(holder: CategoryViewHolder)
     }
-
 }
