@@ -1,5 +1,6 @@
 package com.game.bfinder.categories
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,8 @@ import kotlinx.android.synthetic.main.fragment_categories.*
 import com.game.bfinder.databinding.FragmentCategoriesBinding
 
 import com.game.bfinder.categories.repository.CategoriesRepositoryImpl
+import com.game.core.extensions.hide
+import com.google.android.instantapps.InstantApps
 import timber.log.Timber
 
 class CategoriesFragment : BaseFragment() {
@@ -35,18 +38,29 @@ class CategoriesFragment : BaseFragment() {
                 R.layout.fragment_categories, container, false
             )
 
-        initCategories(binding)
+        return init(categoryViewModel, binding).root
+    }
+
+    private fun init(
+        viewModel: CategoriesViewModel,
+        binding: FragmentCategoriesBinding
+    ): FragmentCategoriesBinding {
+        if (InstantApps.isInstantApp(context!!)) {
+            binding.button2.hide()
+        }
+
+        initCategories(viewModel, binding)
 
         binding.lifecycleOwner = this
 
-        return binding.root
+        return binding
     }
 
-    private fun initCategories(binding: FragmentCategoriesBinding) {
+    private fun initCategories(viewModel: CategoriesViewModel, binding: FragmentCategoriesBinding) {
         binding.viewCategories.apply {
             setHasFixedSize(true)
             adapter = CategoriesAdapter(
-                categoryViewModel,
+                viewModel,
                 this@CategoriesFragment,
                 CategoryItemClickListener()
             )
@@ -56,8 +70,24 @@ class CategoriesFragment : BaseFragment() {
     private inner class CategoryItemClickListener :
         CategoriesAdapter.ItemClickListener<CategoryViewHolder> {
         override fun onItemClick(holder: CategoryViewHolder) {
-            Timber.d(holder.binding.category!!.title)
+            if (InstantApps.isInstantApp(context!!)) {
+                Timber.d(holder.binding.category!!.id.toString())
+                showInstallPrompt(holder.binding.category!!.id)
+            } else {
+
+            }
         }
+    }
+
+    private fun showInstallPrompt(categoryId: Int) {
+        InstantApps.showInstallPrompt(
+            activity!!,
+            Intent().apply {
+                putExtra(AppConstants.ID_BOOK_PARAM, categoryId)
+            },
+            AppConstants.CATEGORIES_TO_BOOK_REQUEST,
+            AppConstants.CATEGORIES_TO_BOOK_REQUEST_REFER
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
