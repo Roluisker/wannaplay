@@ -23,25 +23,29 @@
             android:name="com.game.meet.BookListActivity"
             android:screenOrientation="portrait">
 
-            <intent-filter
-                android:autoVerify="true"
-                android:order="3">
-
+            <intent-filter android:order="3">
                 <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https" />
-                <data android:scheme="http" />
-                <data android:host="bfinder-instant.com" />
-                <data android:pathPrefix="/meet" />
-
+                <data
+                    android:scheme="https"
+                    android:host="bfinder-instant.com"
+                    android:pathPrefix="/meet" />
             </intent-filter>
+            <intent-filter android:order="3">
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="bfinder-instant.com"
+                    android:pathPrefix="/meet" />
+            </intent-filter>
         </activity>
-
     </application>
-
 </manifest>
 

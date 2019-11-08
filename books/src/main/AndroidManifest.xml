@@ -22,25 +22,30 @@
             android:name="com.game.books.BooksActivity"
             android:screenOrientation="portrait">
 
-            <intent-filter
-                android:autoVerify="true"
-                android:order="2">
-
+            <intent-filter android:order="2">
                 <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="https" />
-                <data android:scheme="http" />
-                <data android:host="bfinder-instant.com" />
-                <data android:pathPrefix="/books" />
+                <data
+                    android:host="bfinder-instant.com"
+                    android:pathPrefix="/books"
+                    android:scheme="https" />
+            </intent-filter>
+            <intent-filter android:order="2">
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="bfinder-instant.com"
+                    android:pathPrefix="/books"
+                    android:scheme="http" />
             </intent-filter>
 
         </activity>
-
     </application>
-
 </manifest>
 
