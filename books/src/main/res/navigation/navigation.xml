@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainBooks"
+    app:startDestination="@id/books">
+
+    <fragment
+        android:id="@+id/books"
+        android:name="com.game.books.BooksFragment"
+        android:label="fragment_list_books"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/fade_out"
+        tools:layout="@layout/fragment_books">
+
+    </fragment>
+
+    <activity
+        android:id="@+id/mainBookActivity"
+        android:name="com.game.books.BooksActivity"
+        tools:layout="@layout/activity_main_book" />
+</navigation>

@@ -1,11 +1,11 @@
-package com.game.bfinder
+package com.game.books
 
 import android.os.Bundle
 import com.game.core.BaseActivity
 
-class MainActivity : BaseActivity() {
+class BooksActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_book)
     }
 }

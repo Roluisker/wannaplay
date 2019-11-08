@@ -66,6 +66,9 @@ class CategoriesFragment : BaseFragment() {
         button.setOnClickListener {
             openModule(AppConstants.MEET_MODULE_PATH)
         }
-    }
 
+        button2.setOnClickListener {
+            openModule(AppConstants.BOOKS_MODULE_PATH)
+        }
+    }
 }

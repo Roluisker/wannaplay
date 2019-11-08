@@ -9,5 +9,4 @@ class App : Application() {
         super.onCreate()
         BuildConfig.DEBUG.takeIf { true }.apply { Timber.plant(Timber.DebugTree()) }
     }
-
 }
