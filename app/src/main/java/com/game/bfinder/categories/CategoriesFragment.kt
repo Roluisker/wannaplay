@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.game.bfinder.BuildConfig
 import com.game.bfinder.MainActivity
 
 import com.game.bfinder.R
@@ -95,8 +96,15 @@ class CategoriesFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         button2.setOnClickListener {
-            //(activity as MainActivity).downloadDynamicModule()
-            openModule(AppConstants.BOOKS_MODULE_PATH)
+            //openModule(AppConstants.BOOKS_MODULE_PATH)
+            val intent =
+                Intent().setClassName(BuildConfig.APPLICATION_ID, "com.game.books.BooksActivity")
+            startActivity(intent)
+        }
+
+        button3.setOnClickListener {
+            Timber.d("1")
+            (activity as MainActivity).loadAndLaunchModule(AppConstants.SEARCH_MODULE)
         }
     }
 }

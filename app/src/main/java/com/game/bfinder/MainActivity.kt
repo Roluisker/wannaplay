@@ -25,7 +25,7 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
         manager = SplitInstallManagerFactory.create(this)
     }
 
-    private fun loadAndLaunchModule(name: String) {
+    fun loadAndLaunchModule(name: String) {
         updateProgressMessage(getString(R.string.loading_module, name))
 
         if (manager.installedModules.contains(name)) {
@@ -50,7 +50,6 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
         val names = if (langsInstall) {
             state.languages().first()
         } else state.moduleNames().joinToString(" - ")
-
         when (state.status()) {
             SplitInstallSessionStatus.DOWNLOADING -> {
                 displayLoadingState(state, getString(R.string.downloading, names))
@@ -60,6 +59,7 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
             }
             SplitInstallSessionStatus.INSTALLED -> {
                 if (langsInstall) {
+                    currentTextProgress.text = "INSTALL SUCK IN langsInstall"
                     //onSuccessfulLanguageLoad(names)
                 } else {
                     onSuccessfulLoad(names, launch = !multiInstall)
@@ -71,14 +71,14 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
                 getString(R.string.installing, names)
             )
             SplitInstallSessionStatus.FAILED -> {
-
+                currentTextProgress.text = "INSTALL FAIL"
             }
         }
 
     }
 
     private fun updateProgressMessage(message: String) {
-        if (installPanel.visibility != View.GONE) installPanel.show()
+        if (installPanel.visibility == View.GONE) installPanel.show()
         currentTextProgress.text = message
     }
 
