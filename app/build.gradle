@@ -25,7 +25,7 @@ android {
         unitTests.returnDefaultValues = true
     }
 
-    dynamicFeatures = [":meet", ":books", ":search"]
+    dynamicFeatures = [":books", ":search"]
 
 }
 
