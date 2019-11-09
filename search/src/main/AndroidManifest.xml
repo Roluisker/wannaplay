@@ -23,7 +23,7 @@
             android:name="com.group.pow.search.SearchActivity"
             android:screenOrientation="portrait">
 
-            <intent-filter android:order="3">
+            <intent-filter android:order="3" android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -34,7 +34,7 @@
                     android:host="bfinder-instant.com"
                     android:pathPrefix="/search" />
             </intent-filter>
-            <intent-filter android:order="3">
+            <intent-filter android:order="3" android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
