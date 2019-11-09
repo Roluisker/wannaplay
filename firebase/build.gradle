@@ -7,6 +7,16 @@ apply from: '../config_module.gradle'
 
 android {
 
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdkVersion
+        versionCode versions.moduleVersionCode
+        versionName versions.moduleVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
     testOptions {
         unitTests.returnDefaultValues = true
     }

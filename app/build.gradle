@@ -7,6 +7,16 @@ apply from: '../base_libraries.gradle'
 
 android {
 
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdkVersion
+        versionCode versions.moduleVersionCode
+        versionName versions.moduleVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
     dataBinding {
         enabled true
     }
@@ -15,7 +25,7 @@ android {
         unitTests.returnDefaultValues = true
     }
 
-    dynamicFeatures = [":meet", ":books"]
+    dynamicFeatures = [":meet", ":books", ":search"]
 
 }
 

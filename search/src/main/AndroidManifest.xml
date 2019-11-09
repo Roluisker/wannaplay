@@ -1,15 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.sc.convert">
+    package="com.group.pow.search">
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_meet">
+        dist:title="@string/title_search">
         <dist:delivery>
-            <dist:install-time />
+            <dist:on-demand />
         </dist:delivery>
         <dist:fusing dist:include="false" />
     </dist:module>
+
 
     <application
         android:allowBackup="true"
@@ -20,10 +21,10 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.game.meet.BookListActivity"
+            android:name="com.group.pow.search.SearchActivity"
             android:screenOrientation="portrait">
 
-            <intent-filter android:order="4">
+            <intent-filter android:order="3">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -32,7 +33,7 @@
                 <data
                     android:scheme="https"
                     android:host="bfinder-instant.com"
-                    android:pathPrefix="/meet" />
+                    android:pathPrefix="/search" />
             </intent-filter>
             <intent-filter android:order="3">
                 <action android:name="android.intent.action.VIEW" />
@@ -43,9 +44,10 @@
                 <data
                     android:scheme="http"
                     android:host="bfinder-instant.com"
-                    android:pathPrefix="/meet" />
+                    android:pathPrefix="/search" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
 
