@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.game.core.AppConstants
 import com.game.core.BaseActivity
+import com.game.core.extensions.hide
 import com.game.core.extensions.show
 import com.google.android.play.core.splitinstall.*
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
@@ -92,7 +93,10 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
     private fun onSuccessfulLoad(moduleName: String, launch: Boolean) {
         if (launch) {
             when (moduleName) {
-                AppConstants.SEARCH_MODULE -> launchActivity(SEARCH_ACTIVITY_CLASSNAME)
+                AppConstants.SEARCH_MODULE -> {
+                    installPanel.hide()
+                    launchActivity(SEARCH_ACTIVITY_CLASSNAME)
+                }
             }
         }
     }
