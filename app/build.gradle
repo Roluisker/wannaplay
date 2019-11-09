@@ -33,6 +33,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':core')
 
+    implementation 'com.google.android.play:core:1.6.4'
+
     annotationProcessor deps.lifecycle.compiler
 
     testImplementation deps.test.junit

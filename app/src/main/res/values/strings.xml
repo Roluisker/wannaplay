@@ -3,4 +3,9 @@
     <string name="title_meet">Meeting</string>
     <string name="title_books">Books</string>
     <string name="title_search">Search</string>
+    <string name="installing">Installing %1$s</string>
+    <string name="downloading">Downloading %1$s</string>
+    <string name="loading_module">Loading module %1$s</string>
+    <string name="already_installed">Already installed</string>
+    <string name="starting_install_for">Starting install for %1$s</string>
 </resources>

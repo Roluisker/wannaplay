@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.game.bfinder.MainActivity
 
 import com.game.bfinder.R
 import com.game.bfinder.categories.adapter.CategoriesAdapter
@@ -94,6 +95,7 @@ class CategoriesFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         button2.setOnClickListener {
+            //(activity as MainActivity).downloadDynamicModule()
             openModule(AppConstants.BOOKS_MODULE_PATH)
         }
     }
