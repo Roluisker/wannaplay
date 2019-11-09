@@ -4,43 +4,45 @@ buildscript {
     ext.kotlin_version = '1.3.50'
 
     ext.versions = [
-            'applicationId'      : "com.game.bfinder",
-            'minSdk'             : 21,
-            'compileSdk'         : 28,
-            'targetSdkVersion'   : 28,
-            'moduleVersionCode'  : 1,
-            'moduleVersionName'  : "1",
-            'gsonCore'           : '2.8.5',
-            'androidPlugin'      : '3.5.1',
-            'mavenPlugin'        : '2.0',
-            'androidxCore'       : '1.1.0-alpha04',
-            'androidxAppCompat'  : '1.0.0',
-            'androidxConstrains' : '1.1.3',
-            'junit'              : '4.12',
-            'testRunner'         : '1.1.0',
-            'espressoCore'       : '3.1.0',
-            'supportMultidex'    : '1.0.3',
-            'kotlin'             : '1.3.50',
-            'archLifecycle'      : '2.0.0',
-            'okHttpNet'          : '3.13.1',
-            'timberLogger'       : '4.7.1',
-            'xNavigation'        : '2.0.0-rc02',
-            'googleMaterial'     : '1.0.0-rc01',
-            'imgPicasso'         : '2.71828',
-            'archCoreTesting'    : '2.0.0',
-            'testCore'           : '1.1.0',
-            'extTestJunit'       : '1.1.0',
-            'xTestRules'         : '1.1.1',
-            'androidArchCoreTest': '1.1.1',
-            'supRunnerTest'      : '1.0.2',
-            'xFragment'          : '1.1.0-alpha09',
-            'fragmentTest'       : '1.1.0-alpha09',
-            'testRules'          : '1.1.0',
-            'testExtJunit'       : '1.1.0',
-            'instant'            : '1.1.0',
-            'firestoreVersion'   : '20.1.0',
-            'gmsServicesVersion' : '4.2.0',
-            'firebaseCoreVersion': '17.0.0'
+            'applicationId'        : "com.game.bfinder",
+            'minSdk'               : 21,
+            'compileSdk'           : 28,
+            'targetSdkVersion'     : 28,
+            'moduleVersionCode'    : 1,
+            'moduleVersionName'    : "1",
+            'gsonCore'             : '2.8.6',
+            'androidPlugin'        : '3.5.1',
+            'mavenPlugin'          : '2.0',
+            'androidxCore'         : '1.1.0-alpha04',
+            'androidxAppCompat'    : '1.0.0',
+            'androidxConstrains'   : '1.1.3',
+            'junit'                : '4.12',
+            'testRunner'           : '1.2.0',
+            'espressoCore'         : '3.2.0',
+            'supportMultidex'      : '1.0.3',
+            'kotlin'               : '1.3.50',
+            'archLifecycle'        : '2.1.0',
+            'okHttpNet'            : '4.2.2',
+            'timberLogger'         : '4.7.1',
+            'xNavigation'          : '2.0.0-rc02',
+            'googleMaterial'       : '1.0.0-rc01',
+            'imgPicasso'           : '2.71828',
+            'archCoreTesting'      : '2.0.0',
+            'testCore'             : '1.1.0',
+            'extTestJunit'         : '1.1.0',
+            'xTestRules'           : '1.1.1',
+            'androidArchCoreTest'  : '1.1.1',
+            'supRunnerTest'        : '1.0.2',
+            'xFragment'            : '1.2.0-rc02',
+            'fragmentTest'         : '1.2.0-rc02',
+            'testRules'            : '1.2.0',
+            'testExtJunit'         : '1.1.1',
+            'instant'              : '1.1.0',
+            'firestoreVersion'     : '21.2.1',
+            'gmsServicesVersion'   : '4.2.0',
+            'firebaseCoreVersion'  : '17.2.1',
+            'fragmentDymaicVersion': '2.3.0-SNAPSHOT',
+            'roboElectricVersion'  : '4.3.1'
     ]
 
     ext.deps = [
@@ -67,7 +69,8 @@ buildscript {
                     'supportTestRunner'   : "com.android.support.test:runner:${versions.supRunnerTest}",
                     'androidxFragmentTest': "androidx.fragment:fragment-testing:${versions.fragmentTest}",
                     'androidxTestRules'   : "androidx.test:rules:${versions.testRules}",
-                    'extJunit'            : "androidx.test.ext:junit:${versions.testExtJunit}"
+                    'extJunit'            : "androidx.test.ext:junit:${versions.testExtJunit}",
+                    'roboElectric'        : "org.robolectric:robolectric:${versions.roboElectricVersion}"
             ],
             lifecycle  : [
                     'extensions'  : "androidx.lifecycle:lifecycle-extensions:${versions.archLifecycle}",
@@ -87,7 +90,7 @@ buildscript {
                     'fragment'           : "androidx.navigation:navigation-fragment:${versions.xNavigation}",
                     'core'               : "androidx.navigation:navigation-ui:${versions.xNavigation}",
                     'gradlePluginSafeArg': "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.xNavigation}",
-                    'fragmentKtx'        : "android.arch.navigation:navigation-fragment-ktx:1.0.0"
+                    'fragmentDynamic'    : "androidx.navigation:navigation-dynamic-features-fragment:${versions.fragmentDymaicVersion}"
             ],
             desing     : [
                     'material'   : "com.google.android.material:material:${versions.googleMaterial}",
@@ -133,6 +136,9 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
         maven { url "https://maven.google.com" }
+        maven {
+            url "https://ci.android.com/builds/submitted/5956592/androidx_snapshot/latest/repository/"
+        }
     }
 }
 

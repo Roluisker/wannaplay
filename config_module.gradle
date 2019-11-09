@@ -1,5 +1,4 @@
 android {
-
     buildTypes {
         release {
             minifyEnabled false
@@ -15,5 +14,4 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
 }

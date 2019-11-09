@@ -36,24 +36,3 @@ dependencies {
     androidTestImplementation deps.test.extJunit
     testImplementation deps.test.extJunit
 }
-/*
-android {
-    compileSdkVersion 28
-    
-
-
-    defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
-    }
-
-
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':app')
-}*/

@@ -46,5 +46,5 @@ dependencies {
     androidTestImplementation deps.test.extJunit
     testImplementation deps.test.extJunit
 
-    testImplementation 'org.robolectric:robolectric:4.2'
+    testImplementation deps.test.roboElectric
 }
