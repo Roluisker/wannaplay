@@ -10,13 +10,10 @@ import com.game.core.AppConstants
 import com.game.core.BaseActivity
 import com.game.core.extensions.hide
 import com.game.core.extensions.show
-import com.game.core.status.InstallModuleStatus
+import com.game.core.model.ModuleInstallRequest
 import com.google.android.play.core.splitinstall.*
 import kotlinx.android.synthetic.main.activity_main.*
-
-private const val PACKAGE_NAME = "com.group.pow"
-private const val PACKAGE_NAME_ONDEMAND = "$PACKAGE_NAME.search"
-private const val SEARCH_ACTIVITY_CLASSNAME = "$PACKAGE_NAME_ONDEMAND.SearchActivity"
+import com.game.core.model.ModuleInstallRequest.*
 
 class MainActivity : BaseActivity() {
 
@@ -31,19 +28,22 @@ class MainActivity : BaseActivity() {
         viewModel.showInstallPanel.observe(binding.lifecycleOwner!!, Observer {
             binding.showInstallPanel = it
         })
-        viewModel.moduleStatus.observe(binding.lifecycleOwner!!, Observer {
+        viewModel.launchModuleRequest.observe(binding.lifecycleOwner!!, Observer {
             currentInstallModuleStatus(it)
         })
     }
 
-    private fun currentInstallModuleStatus(status: InstallModuleStatus) {
-        if (status == InstallModuleStatus.LOADING_MODULE) {
-            binding.currentTextProgress.text = getString(R.string.loading_module)
+    private fun currentInstallModuleStatus(currentRequest: ModuleInstallRequest) {
+        when (currentRequest.currentStatus) {
+            InstallModuleStatus.LOADING_MODULE -> binding.currentTextProgress.text =
+                getString(R.string.loading_module)
+            InstallModuleStatus.ALREADY_INSTALLED -> binding.currentTextProgress.text =
+                getString(R.string.already_installed)
         }
     }
 
-    fun loadAndLaunchModule(name: String) {
-        viewModel.loadAndLaunchModule(name)
+    fun loadAndLaunchModule(moduleInstallRequest: ModuleInstallRequest) {
+        viewModel.loadAndLaunchModule(moduleInstallRequest)
     }
 
     /*
@@ -82,7 +82,7 @@ class MainActivity : BaseActivity() {
             when (moduleName) {
                 AppConstants.SEARCH_MODULE -> {
                     installPanel.hide()
-                    launchActivity(SEARCH_ACTIVITY_CLASSNAME)
+                    //launchActivity(SEARCH_ACTIVITY_CLASSNAME)
                 }
             }
         }

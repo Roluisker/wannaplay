@@ -3,8 +3,9 @@ package com.game.bfinder
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.game.core.BaseViewModel
-import com.game.core.status.InstallModuleStatus
+import com.game.core.model.ModuleInstallRequest
 import com.google.android.play.core.splitinstall.*
+import com.game.core.model.ModuleInstallRequest.*
 
 private const val CONFIRMATION_REQUEST_CODE = 1
 
@@ -12,17 +13,16 @@ class MainActivityViewModel(context: Context) : BaseViewModel(),
     SplitInstallStateUpdatedListener {
 
     val showInstallPanel: MutableLiveData<Boolean> = MutableLiveData()
-    val moduleStatus: MutableLiveData<InstallModuleStatus> = MutableLiveData()
+    val launchModuleRequest: MutableLiveData<ModuleInstallRequest> = MutableLiveData()
     var splitInstaller: SplitInstallManager = SplitInstallManagerFactory.create(context)
 
-    fun loadAndLaunchModule(name: String) {
-        showInstallPanel.value = true
-        moduleStatus.value = InstallModuleStatus.LOADING_MODULE
-        //updateProgressMessage(getString(R.string.loading_module, name))
+    fun loadAndLaunchModule(moduleInstallRequest: ModuleInstallRequest) {
+        isInstallPanelVisible(true)
+        setCurrentLaunchRequest(moduleInstallRequest)
 
         /*
         if (splitInstaller.installedModules.contains(name)) {
-            updateProgressMessage(getString(R.string.already_installed))
+            currentInstallModuleStatus(InstallModuleStatus.ALREADY_INSTALLED)
             onSuccessfulLoad(name, launch = true)
             return
         }
@@ -34,6 +34,18 @@ class MainActivityViewModel(context: Context) : BaseViewModel(),
         splitInstaller.startInstall(request)
 
         updateProgressMessage(getString(R.string.starting_install_for, name))*/
+    }
+
+    private fun isInstallPanelVisible(visible: Boolean) {
+        showInstallPanel.value = visible
+    }
+
+    private fun setCurrentLaunchRequest(lauchRequest: ModuleInstallRequest) {
+        launchModuleRequest.value = lauchRequest
+    }
+
+    private fun currentInstallModuleStatus(status: InstallModuleStatus) {
+        launchModuleRequest.value?.currentStatus = status
     }
 
     override fun onStateUpdate(state: SplitInstallSessionState) {

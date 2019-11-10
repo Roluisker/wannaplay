@@ -19,8 +19,13 @@ import com.game.bfinder.databinding.FragmentCategoriesBinding
 
 import com.game.bfinder.categories.repository.CategoriesRepositoryImpl
 import com.game.core.extensions.hide
+import com.game.core.model.ModuleInstallRequest
 import com.google.android.instantapps.InstantApps
 import timber.log.Timber
+
+private const val PACKAGE_NAME = "com.group.pow"
+private const val PACKAGE_NAME_ONDEMAND = "$PACKAGE_NAME.search"
+private const val SEARCH_ACTIVITY_CLASSNAME = "$PACKAGE_NAME_ONDEMAND.SearchActivity"
 
 class CategoriesFragment : BaseFragment() {
 
@@ -67,7 +72,12 @@ class CategoriesFragment : BaseFragment() {
         }
 
         binding.button3.setOnClickListener {
-            (activity as MainActivity).loadAndLaunchModule(AppConstants.SEARCH_MODULE)
+            (activity as MainActivity).loadAndLaunchModule(
+                ModuleInstallRequest(
+                    AppConstants.SEARCH_MODULE,
+                    SEARCH_ACTIVITY_CLASSNAME
+                )
+            )
         }
 
         binding.button4.setOnClickListener {
