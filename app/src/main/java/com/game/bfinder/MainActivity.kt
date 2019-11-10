@@ -10,26 +10,25 @@ import com.game.core.BaseActivity
 import com.game.core.extensions.hide
 import com.game.core.extensions.show
 import com.google.android.play.core.splitinstall.*
-import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import kotlinx.android.synthetic.main.activity_main.*
 
-private const val CONFIRMATION_REQUEST_CODE = 1
 private const val PACKAGE_NAME = "com.group.pow"
 private const val PACKAGE_NAME_ONDEMAND = "$PACKAGE_NAME.search"
 private const val SEARCH_ACTIVITY_CLASSNAME = "$PACKAGE_NAME_ONDEMAND.SearchActivity"
 
-class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var manager: SplitInstallManager
+    private lateinit var viewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = MainActivityViewModel(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
-        manager = SplitInstallManagerFactory.create(this)
     }
 
+    /*
     fun loadAndLaunchModule(name: String) {
         updateProgressMessage(getString(R.string.loading_module, name))
 
@@ -46,40 +45,7 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
         manager.startInstall(request)
 
         updateProgressMessage(getString(R.string.starting_install_for, name))
-    }
-
-    override fun onStateUpdate(state: SplitInstallSessionState) {
-        val multiInstall = state.moduleNames().size > 1
-        val langsInstall = !state.languages().isEmpty()
-
-        val names = if (langsInstall) {
-            state.languages().first()
-        } else state.moduleNames().joinToString(" - ")
-        when (state.status()) {
-            SplitInstallSessionStatus.DOWNLOADING -> {
-                displayLoadingState(state, getString(R.string.downloading, names))
-            }
-            SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
-                manager.startConfirmationDialogForResult(state, this, CONFIRMATION_REQUEST_CODE)
-            }
-            SplitInstallSessionStatus.INSTALLED -> {
-                if (langsInstall) {
-                    currentTextProgress.text = "INSTALL SUCK IN langsInstall"
-                    //onSuccessfulLanguageLoad(names)
-                } else {
-                    onSuccessfulLoad(names, launch = !multiInstall)
-                }
-            }
-
-            SplitInstallSessionStatus.INSTALLING -> displayLoadingState(
-                state,
-                getString(R.string.installing, names)
-            )
-            SplitInstallSessionStatus.FAILED -> {
-                currentTextProgress.text = "INSTALL FAIL"
-            }
-        }
-    }
+    }*/
 
     private fun updateProgressMessage(message: String) {
         if (installPanel.visibility == View.GONE) installPanel.show()
@@ -105,12 +71,12 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
     }
 
     override fun onResume() {
-        manager.registerListener(this)
+        viewModel.registerModuleInstallListener()
         super.onResume()
     }
 
     override fun onPause() {
-        manager.unregisterListener(this)
+        viewModel.removeModuleInstallListener()
         super.onPause()
     }
 
