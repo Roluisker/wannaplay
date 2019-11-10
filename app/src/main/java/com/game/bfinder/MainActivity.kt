@@ -24,6 +24,7 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         manager = SplitInstallManagerFactory.create(this)
+
     }
 
     fun loadAndLaunchModule(name: String) {
@@ -75,7 +76,6 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
                 currentTextProgress.text = "INSTALL FAIL"
             }
         }
-
     }
 
     private fun updateProgressMessage(message: String) {

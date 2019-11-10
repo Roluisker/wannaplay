@@ -50,11 +50,35 @@ class CategoriesFragment : BaseFragment() {
             binding.button2.hide()
         }
 
+        addOnClicks(binding)
+
         initCategories(viewModel, binding)
 
         binding.lifecycleOwner = this
 
         return binding
+    }
+
+    private fun addOnClicks(binding: FragmentCategoriesBinding) {
+        binding.button2.setOnClickListener {
+            //openModule(AppConstants.BOOKS_MODULE_PATH)
+            val intent =
+                Intent().setClassName(BuildConfig.APPLICATION_ID, "com.game.books.BooksActivity")
+            startActivity(intent)
+        }
+
+        binding.button3.setOnClickListener {
+            Timber.d("1")
+            (activity as MainActivity).loadAndLaunchModule(AppConstants.SEARCH_MODULE)
+        }
+
+        binding.button4.setOnClickListener {
+            val intent = Intent().setClassName(
+                BuildConfig.APPLICATION_ID,
+                "com.group.pow.search.SearchActivity"
+            )
+            startActivity(intent)
+        }
     }
 
     private fun initCategories(viewModel: CategoriesViewModel, binding: FragmentCategoriesBinding) {
@@ -94,16 +118,6 @@ class CategoriesFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        button2.setOnClickListener {
-            //openModule(AppConstants.BOOKS_MODULE_PATH)
-            val intent =
-                Intent().setClassName(BuildConfig.APPLICATION_ID, "com.game.books.BooksActivity")
-            startActivity(intent)
-        }
 
-        button3.setOnClickListener {
-            Timber.d("1")
-            (activity as MainActivity).loadAndLaunchModule(AppConstants.SEARCH_MODULE)
-        }
     }
 }

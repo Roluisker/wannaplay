@@ -40,6 +40,25 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+      binding.button2.setOnClickListener {
+            //openModule(AppConstants.BOOKS_MODULE_PATH)
+            val intent =
+                Intent().setClassName(BuildConfig.APPLICATION_ID, "com.game.books.BooksActivity")
+            startActivity(intent)
+        }
+
+        binding.button3.setOnClickListener {
+            Timber.d("1")
+            (activity as MainActivity).loadAndLaunchModule(AppConstants.SEARCH_MODULE)
+        }
+
+        binding.button4.setOnClickListener {
+            val intent = Intent().setClassName(
+                BuildConfig.APPLICATION_ID,
+                "com.group.pow.search.SearchActivity"
+            )
+            startActivity(intent)
+        }
 
                 <data
                     android:scheme="http"
