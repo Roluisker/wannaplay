@@ -3,6 +3,8 @@ package com.game.bfinder
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.databinding.DataBindingUtil
+import com.game.bfinder.databinding.ActivityMainBinding
 import com.game.core.AppConstants
 import com.game.core.BaseActivity
 import com.game.core.extensions.hide
@@ -18,11 +20,13 @@ private const val SEARCH_ACTIVITY_CLASSNAME = "$PACKAGE_NAME_ONDEMAND.SearchActi
 
 class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var manager: SplitInstallManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.lifecycleOwner = this
         manager = SplitInstallManagerFactory.create(this)
     }
 

@@ -67,7 +67,6 @@ class CategoriesFragment : BaseFragment() {
         }
 
         binding.button3.setOnClickListener {
-            Timber.d("1")
             (activity as MainActivity).loadAndLaunchModule(AppConstants.SEARCH_MODULE)
         }
 
@@ -112,11 +111,5 @@ class CategoriesFragment : BaseFragment() {
             AppConstants.CATEGORIES_TO_BOOK_REQUEST,
             AppConstants.CATEGORIES_TO_BOOK_REQUEST_REFER
         )
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-
     }
 }
