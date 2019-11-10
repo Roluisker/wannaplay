@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import com.game.bfinder.R
 import com.game.bfinder.categories.CategoriesViewModel
 import com.game.bfinder.databinding.CategoryListItemBinding
 import com.game.core.model.Category
@@ -38,6 +39,15 @@ class CategoriesAdapter(
 
         if (item != null) {
             holder.binding.category = item
+
+            var imageResource = R.drawable.ic_launcher_background
+
+            if (item.id == 1) {
+                imageResource = R.drawable.art_category
+            } else if (item.id == 2) {
+                imageResource = R.drawable.fiction_category
+            }
+            holder.binding.categoryImage.setImageResource(imageResource)
         }
     }
 

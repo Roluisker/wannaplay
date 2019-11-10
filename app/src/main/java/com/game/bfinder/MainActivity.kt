@@ -39,6 +39,7 @@ class MainActivity : BaseActivity() {
             InstallModuleStatus.ALREADY_INSTALLED -> onAlreadyInstalled(currentRequest)
             InstallModuleStatus.DOWNLOADING -> updateProgressText(getString(R.string.downloading))
             InstallModuleStatus.INSTALLED -> onInstalled(currentRequest)
+            else -> updateProgressText(getString(R.string.unkown))
         }
     }
 
