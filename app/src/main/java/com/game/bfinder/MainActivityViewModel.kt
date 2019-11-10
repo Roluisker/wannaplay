@@ -6,10 +6,11 @@ import com.game.core.BaseViewModel
 import com.game.core.model.ModuleInstallRequest
 import com.google.android.play.core.splitinstall.*
 import com.game.core.model.ModuleInstallRequest.*
+import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 
 private const val CONFIRMATION_REQUEST_CODE = 1
 
-class MainActivityViewModel(context: Context) : BaseViewModel(),
+class MainActivityViewModel(private val context: Context) : BaseViewModel(),
     SplitInstallStateUpdatedListener {
 
     val showInstallPanel: MutableLiveData<Boolean> = MutableLiveData()
@@ -33,29 +34,10 @@ class MainActivityViewModel(context: Context) : BaseViewModel(),
         splitInstaller.startInstall(request)
     }
 
-    private fun isInstallPanelVisible(visible: Boolean) {
-        showInstallPanel.value = visible
-    }
-
-    private fun setCurrentLaunchRequest(lauchRequest: ModuleInstallRequest) {
-        launchModuleRequest.value = lauchRequest
-    }
-
-    private fun currentInstallModuleStatus(status: InstallModuleStatus) {
-        launchModuleRequest.value?.currentStatus = status
-        launchModuleRequest.postValue(launchModuleRequest.value)
-    }
-
     override fun onStateUpdate(state: SplitInstallSessionState) {
-        val multiInstall = state.moduleNames().size > 1
-        val langsInstall = !state.languages().isEmpty()
-/*
-        val names = if (langsInstall) {
-            state.languages().first()
-        } else state.moduleNames().joinToString(" - ")
         when (state.status()) {
             SplitInstallSessionStatus.DOWNLOADING -> {
-                displayLoadingState(state, getString(R.string.downloading, names))
+                currentInstallModuleStatus(InstallModuleStatus.DOWNLOADING)
             }
             SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
                 splitInstaller.startConfirmationDialogForResult(
@@ -65,23 +47,37 @@ class MainActivityViewModel(context: Context) : BaseViewModel(),
                 )
             }
             SplitInstallSessionStatus.INSTALLED -> {
-                if (langsInstall) {
-                    currentTextProgress.text = "INSTALL SUCK IN langsInstall"
-                    //onSuccessfulLanguageLoad(names)
-                } else {
-                    onSuccessfulLoad(names, launch = !multiInstall)
-                }
+                currentInstallModuleStatus(InstallModuleStatus.INSTALLED)
             }
 
-            SplitInstallSessionStatus.INSTALLING -> displayLoadingState(
-                state,
-                getString(R.string.installing, names)
-            )
+            SplitInstallSessionStatus.INSTALLING -> {
+                currentInstallModuleStatus(InstallModuleStatus.INSTALLING)
+                currentDownloadingState(state)
+            }
+
             SplitInstallSessionStatus.FAILED -> {
-                currentTextProgress.text = "INSTALL FAIL"
+                currentInstallModuleStatus(InstallModuleStatus.FAILED)
             }
         }
-        */
+    }
+
+    private fun currentInstallModuleStatus(status: InstallModuleStatus) {
+        launchModuleRequest.value?.currentStatus = status
+        launchModuleRequest.postValue(launchModuleRequest?.value)
+    }
+
+    private fun currentDownloadingState(state: SplitInstallSessionState) {
+        launchModuleRequest.value?.maxProgress = state.totalBytesToDownload().toInt()
+        launchModuleRequest.value?.currentProgress = state.bytesDownloaded().toInt()
+        launchModuleRequest.postValue(launchModuleRequest?.value)
+    }
+
+    private fun isInstallPanelVisible(visible: Boolean) {
+        showInstallPanel.value = visible
+    }
+
+    private fun setCurrentLaunchRequest(lauchRequest: ModuleInstallRequest) {
+        launchModuleRequest.value = lauchRequest
     }
 
     fun registerModuleInstallListener() {

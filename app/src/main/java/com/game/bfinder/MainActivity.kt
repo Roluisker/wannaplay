@@ -2,17 +2,12 @@ package com.game.bfinder
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.game.bfinder.databinding.ActivityMainBinding
 import com.game.core.AppConstants
 import com.game.core.BaseActivity
-import com.game.core.extensions.hide
-import com.game.core.extensions.show
 import com.game.core.model.ModuleInstallRequest
-import com.google.android.play.core.splitinstall.*
-import kotlinx.android.synthetic.main.activity_main.*
 import com.game.core.model.ModuleInstallRequest.*
 
 class MainActivity : BaseActivity() {
@@ -25,6 +20,10 @@ class MainActivity : BaseActivity() {
         viewModel = MainActivityViewModel(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
+        init()
+    }
+
+    private fun init() {
         viewModel.showInstallPanel.observe(binding.lifecycleOwner!!, Observer {
             binding.showInstallPanel = it
         })
@@ -35,49 +34,32 @@ class MainActivity : BaseActivity() {
 
     private fun currentInstallModuleStatus(currentRequest: ModuleInstallRequest) {
         when (currentRequest.currentStatus) {
-            InstallModuleStatus.LOADING_MODULE -> binding.currentTextProgress.text =
-                getString(R.string.loading_module)
-            InstallModuleStatus.ALREADY_INSTALLED -> {
-                binding.currentTextProgress.text =
-                    getString(R.string.already_installed)
-                onSuccessfulLoad(currentRequest.moduleName, currentRequest.modulePath)
-            }
+            InstallModuleStatus.INSTALLING -> onInstalling(currentRequest)
+            InstallModuleStatus.LOADING_MODULE -> updateProgressText(getString(R.string.loading_module))
+            InstallModuleStatus.ALREADY_INSTALLED -> onAlreadyInstalled(currentRequest)
+            InstallModuleStatus.DOWNLOADING -> updateProgressText(getString(R.string.downloading))
+            InstallModuleStatus.INSTALLED -> onInstalled(currentRequest)
         }
     }
 
-    fun loadAndLaunchModule(moduleInstallRequest: ModuleInstallRequest) {
-        viewModel.loadAndLaunchModule(moduleInstallRequest)
+    private fun onInstalled(currentRequest: ModuleInstallRequest) {
+        updateProgressText(getString(R.string.installed))
+        onSuccessfulLoad(currentRequest.moduleName, currentRequest.modulePath)
     }
 
-    /*
-    fun loadAndLaunchModule(name: String) {
-        updateProgressMessage(getString(R.string.loading_module, name))
-
-        if (manager.installedModules.contains(name)) {
-            updateProgressMessage(getString(R.string.already_installed))
-            onSuccessfulLoad(name, launch = true)
-            return
-        }
-
-        val request = SplitInstallRequest.newBuilder()
-            .addModule(name)
-            .build()
-
-        manager.startInstall(request)
-
-        updateProgressMessage(getString(R.string.starting_install_for, name))
-    }*/
-
-    private fun updateProgressMessage(message: String) {
-        if (installPanel.visibility == View.GONE) installPanel.show()
-        currentTextProgress.text = message
+    private fun onInstalling(currentRequest: ModuleInstallRequest) {
+        updateProgressText(getString(R.string.installing))
+        binding.maxProgress = currentRequest.maxProgress
+        binding.currentProgress = currentRequest.currentProgress
     }
 
-    private fun displayLoadingState(state: SplitInstallSessionState, message: String) {
-        progressBar.max = state.totalBytesToDownload().toInt()
-        progressBar.progress = state.bytesDownloaded().toInt()
+    private fun onAlreadyInstalled(currentRequest: ModuleInstallRequest) {
+        updateProgressText(getString(R.string.already_installed))
+        onSuccessfulLoad(currentRequest.moduleName, currentRequest.modulePath)
+    }
 
-        updateProgressMessage(message)
+    private fun updateProgressText(text: String) {
+        binding.currentTextProgress.text = text
     }
 
     private fun onSuccessfulLoad(moduleName: String, launchPath: String) {
@@ -88,6 +70,15 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    fun loadAndLaunchModule(moduleInstallRequest: ModuleInstallRequest) {
+        viewModel.loadAndLaunchModule(moduleInstallRequest)
+    }
+
+    private fun launchActivity(className: String) {
+        val intent = Intent().setClassName(BuildConfig.APPLICATION_ID, className)
+        startActivity(intent)
+    }
+
     override fun onResume() {
         viewModel.registerModuleInstallListener()
         super.onResume()
@@ -96,10 +87,5 @@ class MainActivity : BaseActivity() {
     override fun onPause() {
         viewModel.removeModuleInstallListener()
         super.onPause()
-    }
-
-    private fun launchActivity(className: String) {
-        val intent = Intent().setClassName(BuildConfig.APPLICATION_ID, className)
-        startActivity(intent)
     }
 }

@@ -11,6 +11,14 @@
             name="showInstallPanel"
             type="boolean" />
 
+        <variable
+            name="maxProgress"
+            type="Integer" />
+
+        <variable
+            name="currentProgress"
+            type="Integer" />
+
     </data>
 
     <LinearLayout
@@ -45,8 +53,11 @@
 
             <ProgressBar
                 android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:max="@{maxProgress}"
+                android:progress="@{currentProgress}" />
 
             <TextView
                 android:id="@+id/currentTextProgress"
