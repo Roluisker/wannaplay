@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.game.bfinder.databinding.ActivityMainBinding
 import com.game.core.AppConstants
 import com.game.core.BaseActivity
@@ -26,6 +27,13 @@ class MainActivity : BaseActivity() {
         viewModel = MainActivityViewModel(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
+        viewModel.showInstallPanel.observe(binding.lifecycleOwner!!, Observer {
+            binding.showInstallPanel = it
+        })
+    }
+
+    fun loadAndLaunchModule(name: String) {
+        viewModel.loadAndLaunchModule(name)
     }
 
     /*

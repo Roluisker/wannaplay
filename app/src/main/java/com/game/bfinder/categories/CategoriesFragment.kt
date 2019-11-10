@@ -67,7 +67,7 @@ class CategoriesFragment : BaseFragment() {
         }
 
         binding.button3.setOnClickListener {
-            //(activity as MainActivity).loadAndLaunchModule(AppConstants.SEARCH_MODULE)
+            (activity as MainActivity).loadAndLaunchModule(AppConstants.SEARCH_MODULE)
         }
 
         binding.button4.setOnClickListener {

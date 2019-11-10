@@ -1,27 +1,20 @@
 package com.game.bfinder
 
 import android.content.Context
+import androidx.lifecycle.MutableLiveData
 import com.game.core.BaseViewModel
 import com.google.android.play.core.splitinstall.*
 
 private const val CONFIRMATION_REQUEST_CODE = 1
 
-class MainActivityViewModel(val context: Context) : BaseViewModel(),
+class MainActivityViewModel(context: Context) : BaseViewModel(),
     SplitInstallStateUpdatedListener {
 
+    val showInstallPanel: MutableLiveData<Boolean> = MutableLiveData()
     var splitInstaller: SplitInstallManager = SplitInstallManagerFactory.create(context)
 
-    enum class DataStatus {
-        DOWNLOADING,
-        INSTALLED,
-        REQUIRES_USER_CONFIRMATION,
-        ALREADY_INSTALLED,
-        INSTALLING,
-        FAILED,
-        LOADING_MODULE
-    }
-
     fun loadAndLaunchModule(name: String) {
+        showInstallPanel.value = true
         //updateProgressMessage(getString(R.string.loading_module, name))
 
         /*
