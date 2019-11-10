@@ -28,6 +28,8 @@ dependencies {
     api deps.lifecycle.reactStreams
     implementation deps.data.gsonCore
 
+    implementation "com.android.databinding:dataBinder:1.0-rc4"
+
     implementation deps.okHttp3.core
 
     api deps.support.androidxFragment
