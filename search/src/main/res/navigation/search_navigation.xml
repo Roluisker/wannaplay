@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainSearch"
+    app:startDestination="@id/camera">
+
+    <fragment
+        android:id="@+id/camera"
+        android:name="com.group.pow.search.Camera2BasicFragment"
+        android:label="fragment_list_books"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/fade_out"
+        tools:layout="@layout/fragment_camera2_basic">
+
+    </fragment>
+
+    <activity
+        android:id="@+id/searchActivity"
+        android:name="com.group.pow.search.SearchActivity"
+        tools:layout="@layout/activity_search" />
+</navigation>

@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.group.pow.search;
+package com.group.pow.search.tf;
 
 import android.content.Context;
 import android.util.AttributeSet;

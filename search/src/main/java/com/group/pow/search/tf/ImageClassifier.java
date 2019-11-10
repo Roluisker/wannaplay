@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.group.pow.search;
+package com.group.pow.search.tf;
 
 import android.app.Activity;
 import android.content.res.AssetFileDescriptor;
@@ -58,8 +58,8 @@ public class ImageClassifier {
 
   private static final int DIM_PIXEL_SIZE = 3;
 
-  static final int DIM_IMG_SIZE_X = 224;
-  static final int DIM_IMG_SIZE_Y = 224;
+  public static final int DIM_IMG_SIZE_X = 224;
+  public static final int DIM_IMG_SIZE_Y = 224;
 
   private static final int IMAGE_MEAN = 128;
   private static final float IMAGE_STD = 128.0f;
@@ -95,7 +95,7 @@ public class ImageClassifier {
           });
 
   /** Initializes an {@code ImageClassifier}. */
-  ImageClassifier(Activity activity) throws IOException {
+  public ImageClassifier(Activity activity) throws IOException {
     tflite = new Interpreter(loadModelFile(activity));
     labelList = loadLabelList(activity);
     imgData =
@@ -108,7 +108,7 @@ public class ImageClassifier {
   }
 
   /** Classifies a frame from the preview stream. */
-  String classifyFrame(Bitmap bitmap) {
+  public String classifyFrame(Bitmap bitmap) {
     if (tflite == null) {
       Log.e(TAG, "Image classifier has not been initialized; Skipped.");
       return "Uninitialized Classifier.";
