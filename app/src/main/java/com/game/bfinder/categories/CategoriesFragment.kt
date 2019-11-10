@@ -110,7 +110,7 @@ class CategoriesFragment : BaseFragment() {
                 Timber.d(holder.binding.category!!.id.toString())
                 showInstallPrompt(holder.binding.category!!.id)
             } else {
-
+                
             }
         }
     }
