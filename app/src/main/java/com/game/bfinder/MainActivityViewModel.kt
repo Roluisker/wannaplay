@@ -20,20 +20,17 @@ class MainActivityViewModel(context: Context) : BaseViewModel(),
         isInstallPanelVisible(true)
         setCurrentLaunchRequest(moduleInstallRequest)
 
-        /*
-        if (splitInstaller.installedModules.contains(name)) {
+        if (splitInstaller.installedModules.contains(moduleInstallRequest.moduleName)) {
             currentInstallModuleStatus(InstallModuleStatus.ALREADY_INSTALLED)
-            onSuccessfulLoad(name, launch = true)
+            isInstallPanelVisible(false)
             return
         }
 
         val request = SplitInstallRequest.newBuilder()
-            .addModule(name)
+            .addModule(moduleInstallRequest.moduleName)
             .build()
 
         splitInstaller.startInstall(request)
-
-        updateProgressMessage(getString(R.string.starting_install_for, name))*/
     }
 
     private fun isInstallPanelVisible(visible: Boolean) {
@@ -46,6 +43,7 @@ class MainActivityViewModel(context: Context) : BaseViewModel(),
 
     private fun currentInstallModuleStatus(status: InstallModuleStatus) {
         launchModuleRequest.value?.currentStatus = status
+        launchModuleRequest.postValue(launchModuleRequest.value)
     }
 
     override fun onStateUpdate(state: SplitInstallSessionState) {

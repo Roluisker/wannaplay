@@ -37,8 +37,11 @@ class MainActivity : BaseActivity() {
         when (currentRequest.currentStatus) {
             InstallModuleStatus.LOADING_MODULE -> binding.currentTextProgress.text =
                 getString(R.string.loading_module)
-            InstallModuleStatus.ALREADY_INSTALLED -> binding.currentTextProgress.text =
-                getString(R.string.already_installed)
+            InstallModuleStatus.ALREADY_INSTALLED -> {
+                binding.currentTextProgress.text =
+                    getString(R.string.already_installed)
+                onSuccessfulLoad(currentRequest.moduleName, currentRequest.modulePath)
+            }
         }
     }
 
@@ -77,13 +80,10 @@ class MainActivity : BaseActivity() {
         updateProgressMessage(message)
     }
 
-    private fun onSuccessfulLoad(moduleName: String, launch: Boolean) {
-        if (launch) {
-            when (moduleName) {
-                AppConstants.SEARCH_MODULE -> {
-                    installPanel.hide()
-                    //launchActivity(SEARCH_ACTIVITY_CLASSNAME)
-                }
+    private fun onSuccessfulLoad(moduleName: String, launchPath: String) {
+        when (moduleName) {
+            AppConstants.SEARCH_MODULE -> {
+                launchActivity(launchPath)
             }
         }
     }
