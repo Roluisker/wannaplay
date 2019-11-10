@@ -3,6 +3,7 @@ package com.game.bfinder
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.game.core.BaseViewModel
+import com.game.core.status.InstallModuleStatus
 import com.google.android.play.core.splitinstall.*
 
 private const val CONFIRMATION_REQUEST_CODE = 1
@@ -11,10 +12,12 @@ class MainActivityViewModel(context: Context) : BaseViewModel(),
     SplitInstallStateUpdatedListener {
 
     val showInstallPanel: MutableLiveData<Boolean> = MutableLiveData()
+    val moduleStatus: MutableLiveData<InstallModuleStatus> = MutableLiveData()
     var splitInstaller: SplitInstallManager = SplitInstallManagerFactory.create(context)
 
     fun loadAndLaunchModule(name: String) {
         showInstallPanel.value = true
+        moduleStatus.value = InstallModuleStatus.LOADING_MODULE
         //updateProgressMessage(getString(R.string.loading_module, name))
 
         /*

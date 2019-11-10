@@ -10,6 +10,7 @@ import com.game.core.AppConstants
 import com.game.core.BaseActivity
 import com.game.core.extensions.hide
 import com.game.core.extensions.show
+import com.game.core.status.InstallModuleStatus
 import com.google.android.play.core.splitinstall.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,6 +31,15 @@ class MainActivity : BaseActivity() {
         viewModel.showInstallPanel.observe(binding.lifecycleOwner!!, Observer {
             binding.showInstallPanel = it
         })
+        viewModel.moduleStatus.observe(binding.lifecycleOwner!!, Observer {
+            currentInstallModuleStatus(it)
+        })
+    }
+
+    private fun currentInstallModuleStatus(status: InstallModuleStatus) {
+        if (status == InstallModuleStatus.LOADING_MODULE) {
+            binding.currentTextProgress.text = getString(R.string.loading_module)
+        }
     }
 
     fun loadAndLaunchModule(name: String) {
