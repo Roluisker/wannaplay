@@ -50,9 +50,11 @@ class CategoriesFragment : BaseFragment() {
         viewModel: CategoriesViewModel,
         binding: FragmentCategoriesBinding
     ): FragmentCategoriesBinding {
+
+        /*
         if (InstantApps.isInstantApp(context!!)) {
             binding.button2.hide()
-        }
+        }*/
 
         addOnClicks(binding)
 
@@ -64,6 +66,7 @@ class CategoriesFragment : BaseFragment() {
     }
 
     private fun addOnClicks(binding: FragmentCategoriesBinding) {
+        /*
         binding.button2.setOnClickListener {
             //openModule(AppConstants.BOOKS_MODULE_PATH)
             val intent =
@@ -86,7 +89,7 @@ class CategoriesFragment : BaseFragment() {
                 "com.group.pow.search.SearchActivity"
             )
             startActivity(intent)
-        }
+        }*/
     }
 
     private fun initCategories(viewModel: CategoriesViewModel, binding: FragmentCategoriesBinding) {
