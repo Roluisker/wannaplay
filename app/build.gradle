@@ -32,7 +32,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':core')
 
-    implementation 'com.google.android.play:core:1.6.4'
+    implementation deps.general.androidPlayCore
 
     annotationProcessor deps.lifecycle.compiler
 

@@ -30,7 +30,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':app')
 
-    implementation 'org.tensorflow:tensorflow-lite:+'
+    implementation deps.ml.tensorFlow
 
     testImplementation deps.test.junit
     testImplementation deps.test.archCoreTest

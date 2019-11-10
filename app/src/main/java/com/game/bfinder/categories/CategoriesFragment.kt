@@ -15,7 +15,6 @@ import com.game.bfinder.categories.adapter.CategoryViewHolder
 
 import com.game.core.AppConstants
 import com.game.core.BaseFragment
-import kotlinx.android.synthetic.main.fragment_categories.*
 import com.game.bfinder.databinding.FragmentCategoriesBinding
 
 import com.game.bfinder.categories.repository.CategoriesRepositoryImpl

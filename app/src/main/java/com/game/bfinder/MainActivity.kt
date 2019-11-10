@@ -24,7 +24,6 @@ class MainActivity : BaseActivity(), SplitInstallStateUpdatedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         manager = SplitInstallManagerFactory.create(this)
-
     }
 
     fun loadAndLaunchModule(name: String) {

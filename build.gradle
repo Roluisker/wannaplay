@@ -4,45 +4,47 @@ buildscript {
     ext.kotlin_version = '1.3.50'
 
     ext.versions = [
-            'applicationId'        : "com.game.bfinder",
-            'minSdk'               : 21,
-            'compileSdk'           : 29,
-            'targetSdkVersion'     : 29,
-            'moduleVersionCode'    : 5,
-            'moduleVersionName'    : "5",
-            'gsonCore'             : '2.8.6',
-            'androidPlugin'        : '3.5.2',
-            'mavenPlugin'          : '2.0',
-            'androidxCore'         : '1.1.0-alpha04',
-            'androidxAppCompat'    : '1.0.0',
-            'androidxConstrains'   : '1.1.3',
-            'junit'                : '4.12',
-            'testRunner'           : '1.2.0',
-            'espressoCore'         : '3.2.0',
-            'supportMultidex'      : '1.0.3',
-            'kotlin'               : '1.3.50',
-            'archLifecycle'        : '2.1.0',
-            'okHttpNet'            : '4.2.2',
-            'timberLogger'         : '4.7.1',
-            'xNavigation'          : '2.0.0-rc02',
-            'googleMaterial'       : '1.0.0-rc01',
-            'imgPicasso'           : '2.71828',
-            'archCoreTesting'      : '2.0.0',
-            'testCore'             : '1.1.0',
-            'extTestJunit'         : '1.1.0',
-            'xTestRules'           : '1.1.1',
-            'androidArchCoreTest'  : '1.1.1',
-            'supRunnerTest'        : '1.0.2',
-            'xFragment'            : '1.2.0-rc02',
-            'fragmentTest'         : '1.2.0-rc02',
-            'testRules'            : '1.2.0',
-            'testExtJunit'         : '1.1.1',
-            'instant'              : '1.1.0',
-            'firestoreVersion'     : '21.2.1',
-            'gmsServicesVersion'   : '4.2.0',
-            'firebaseCoreVersion'  : '17.2.1',
-            'fragmentDymaicVersion': '2.3.0-SNAPSHOT',
-            'roboElectricVersion'  : '4.3.1'
+            'applicationId'         : "com.game.bfinder",
+            'minSdk'                : 21,
+            'compileSdk'            : 29,
+            'targetSdkVersion'      : 29,
+            'moduleVersionCode'     : 5,
+            'moduleVersionName'     : "5",
+            'gsonCore'              : '2.8.6',
+            'androidPlugin'         : '3.5.2',
+            'mavenPlugin'           : '2.0',
+            'androidxCore'          : '1.1.0-alpha04',
+            'androidxAppCompat'     : '1.0.0',
+            'androidxConstrains'    : '1.1.3',
+            'junit'                 : '4.12',
+            'testRunner'            : '1.2.0',
+            'espressoCore'          : '3.2.0',
+            'supportMultidex'       : '1.0.3',
+            'kotlin'                : '1.3.50',
+            'archLifecycle'         : '2.1.0',
+            'okHttpNet'             : '4.2.2',
+            'timberLogger'          : '4.7.1',
+            'xNavigation'           : '2.0.0-rc02',
+            'googleMaterial'        : '1.0.0-rc01',
+            'imgPicasso'            : '2.71828',
+            'archCoreTesting'       : '2.0.0',
+            'testCore'              : '1.1.0',
+            'extTestJunit'          : '1.1.0',
+            'xTestRules'            : '1.1.1',
+            'androidArchCoreTest'   : '1.1.1',
+            'supRunnerTest'         : '1.0.2',
+            'xFragment'             : '1.2.0-rc02',
+            'fragmentTest'          : '1.2.0-rc02',
+            'testRules'             : '1.2.0',
+            'testExtJunit'          : '1.1.1',
+            'instant'               : '1.1.0',
+            'firestoreVersion'      : '21.2.1',
+            'gmsServicesVersion'    : '4.2.0',
+            'firebaseCoreVersion'   : '17.2.1',
+            'fragmentDymaicVersion' : '2.3.0-SNAPSHOT',
+            'roboElectricVersion'   : '4.3.1',
+            'tonsorFlowVersion'     : '+',
+            'androidPlayCoreVersion': '1.6.4'
     ]
 
     ext.deps = [
@@ -100,7 +102,8 @@ buildscript {
                     'picasso': "com.squareup.picasso:picasso:${versions.imgPicasso}"
             ],
             general    : [
-                    'instantApp': "com.google.android.instantapps:instantapps:${versions.instant}"
+                    'instantApp'     : "com.google.android.instantapps:instantapps:${versions.instant}",
+                    'androidPlayCore': "com.google.android.play:core:${versions.androidPlayCoreVersion}"
             ],
             firebase   : [
                     'firestore': "com.google.firebase:firebase-firestore:${versions.firestoreVersion}",
@@ -109,9 +112,11 @@ buildscript {
             gmsServices: [
                     'googleGmsServices': "com.google.gms:google-services:${versions.gmsServicesVersion}",
                     'plugin'           : 'com.google.gms.google-services'
+            ],
+            ml         : [
+                    'tensorFlow': "org.tensorflow:tensorflow-lite:${versions.tonsorFlowVersion}",
             ]
     ]
-
 
     repositories {
         google()
