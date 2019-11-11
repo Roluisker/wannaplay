@@ -23,7 +23,7 @@ class BooksAdapter(
 
     init {
         categoryViewModel.books.observe(lifecycleOwner, Observer {
-            books.addAll(it)
+            books.addAll(it.data!!)
             notifyDataSetChanged()
         })
     }
