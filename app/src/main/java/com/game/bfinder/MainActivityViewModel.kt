@@ -13,9 +13,9 @@ private const val CONFIRMATION_REQUEST_CODE = 1
 class MainActivityViewModel(private val context: Context) : BaseViewModel(),
     SplitInstallStateUpdatedListener {
 
+    private var splitInstaller: SplitInstallManager = SplitInstallManagerFactory.create(context)
     val showInstallPanel: MutableLiveData<Boolean> = MutableLiveData()
     val launchModuleRequest: MutableLiveData<ModuleInstallRequest> = MutableLiveData()
-    var splitInstaller: SplitInstallManager = SplitInstallManagerFactory.create(context)
 
     fun loadAndLaunchModule(moduleInstallRequest: ModuleInstallRequest) {
         isInstallPanelVisible(true)

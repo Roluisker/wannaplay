@@ -5,5 +5,5 @@ import com.game.core.model.Book
 import java.util.ArrayList
 
 interface BooksRepository {
-    fun fetchBooks(): LiveData<ArrayList<Book>>
+    fun fetchBooks(categorId: Int): LiveData<ArrayList<Book>>
 }

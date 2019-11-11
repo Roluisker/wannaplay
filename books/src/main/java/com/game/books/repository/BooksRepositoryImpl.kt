@@ -8,6 +8,6 @@ import com.game.core.extensions.defaultBooks
 
 class BooksRepositoryImpl : BaseRepository(), BooksRepository {
 
-    override fun fetchBooks(): LiveData<ArrayList<Book>> =
+    override fun fetchBooks(categoryId: Int): LiveData<ArrayList<Book>> =
         BooksLiveData.create(defaultBooks())
 }

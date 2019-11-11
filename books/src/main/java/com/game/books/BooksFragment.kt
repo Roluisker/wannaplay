@@ -41,6 +41,7 @@ class BooksFragment : BaseFragment() {
         arguments?.let {
             val safeArgs = BooksFragmentArgs.fromBundle(it)
             Timber.d(safeArgs.categoryId.toString())
+            booksViewModel.searchByCategoryId(safeArgs.categoryId)
         }
     }
 
