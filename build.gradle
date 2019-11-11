@@ -44,7 +44,9 @@ buildscript {
             'fragmentDymaicVersion' : '2.3.0-SNAPSHOT',
             'roboElectricVersion'   : '4.3.1',
             'tonsorFlowVersion'     : '+',
-            'androidPlayCoreVersion': '1.6.4'
+            'androidPlayCoreVersion': '1.6.4',
+            'fragKtx'               : '1.0.0',
+            'fragKtxUI'             : '1.0.0'
     ]
 
     ext.deps = [
@@ -92,7 +94,9 @@ buildscript {
                     'fragment'           : "androidx.navigation:navigation-fragment:${versions.xNavigation}",
                     'core'               : "androidx.navigation:navigation-ui:${versions.xNavigation}",
                     'gradlePluginSafeArg': "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.xNavigation}",
-                    'fragmentDynamic'    : "androidx.navigation:navigation-dynamic-features-fragment:${versions.fragmentDymaicVersion}"
+                    'fragmentDynamic'    : "androidx.navigation:navigation-dynamic-features-fragment:${versions.fragmentDymaicVersion}",
+                    'fragmentKtx'        : "android.arch.navigation:navigation-fragment-ktx:${versions.fragKtx}",
+                    'fragmentKtUi'       : "android.arch.navigation:navigation-ui-ktx:${versions.fragKtxUI}"
             ],
             desing     : [
                     'material'   : "com.google.android.material:material:${versions.googleMaterial}",

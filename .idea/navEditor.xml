@@ -42,7 +42,7 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="books">
+                  <entry key="categories">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -54,7 +54,7 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="mainBookActivity">
+                  <entry key="mainAppActivity">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">

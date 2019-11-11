@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import com.game.bfinder.databinding.ActivityMainBinding
 import com.game.core.AppConstants
 import com.game.core.BaseActivity
+import com.game.core.BuildConfig
 import com.game.core.model.ModuleInstallRequest
 import com.game.core.model.ModuleInstallRequest.*
 
@@ -75,11 +76,6 @@ class MainActivity : BaseActivity() {
         viewModel.loadAndLaunchModule(moduleInstallRequest)
     }
 
-    private fun launchActivity(className: String) {
-        val intent = Intent().setClassName(BuildConfig.APPLICATION_ID, className)
-        startActivity(intent)
-    }
-
     override fun onResume() {
         viewModel.registerModuleInstallListener()
         super.onResume()
@@ -88,5 +84,10 @@ class MainActivity : BaseActivity() {
     override fun onPause() {
         viewModel.removeModuleInstallListener()
         super.onPause()
+    }
+
+    private fun launchActivity(className: String) {
+        val intent = Intent().setClassName(BuildConfig.APPLICATION_ID, className)
+        startActivity(intent)
     }
 }

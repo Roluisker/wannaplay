@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs"
 apply plugin: 'kotlin-kapt'
 apply from: '../config_module.gradle'
 apply from: '../base_libraries.gradle'
@@ -31,7 +32,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':core')
-
     implementation deps.general.androidPlayCore
 
     annotationProcessor deps.lifecycle.compiler

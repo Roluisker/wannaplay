@@ -49,14 +49,27 @@ class MainActivityViewModel(private val context: Context) : BaseViewModel(),
             SplitInstallSessionStatus.INSTALLED -> {
                 currentInstallModuleStatus(InstallModuleStatus.INSTALLED)
             }
-
             SplitInstallSessionStatus.INSTALLING -> {
                 currentInstallModuleStatus(InstallModuleStatus.INSTALLING)
                 currentDownloadingState(state)
             }
-
             SplitInstallSessionStatus.FAILED -> {
                 currentInstallModuleStatus(InstallModuleStatus.FAILED)
+            }
+            SplitInstallSessionStatus.CANCELED -> {
+
+            }
+            SplitInstallSessionStatus.CANCELING -> {
+
+            }
+            SplitInstallSessionStatus.DOWNLOADED -> {
+
+            }
+            SplitInstallSessionStatus.PENDING -> {
+
+            }
+            SplitInstallSessionStatus.UNKNOWN -> {
+
             }
         }
     }

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.game.bfinder.BuildConfig
-import com.game.bfinder.MainActivity
 
 import com.game.bfinder.R
 import com.game.bfinder.categories.adapter.CategoriesAdapter
@@ -18,8 +17,6 @@ import com.game.core.BaseFragment
 import com.game.bfinder.databinding.FragmentCategoriesBinding
 
 import com.game.bfinder.categories.repository.CategoriesRepositoryImpl
-import com.game.core.extensions.hide
-import com.game.core.model.ModuleInstallRequest
 import com.google.android.instantapps.InstantApps
 import timber.log.Timber
 
@@ -101,6 +98,7 @@ class CategoriesFragment : BaseFragment() {
                 CategoryItemClickListener()
             )
         }
+
     }
 
     private inner class CategoryItemClickListener :
@@ -110,7 +108,9 @@ class CategoriesFragment : BaseFragment() {
                 Timber.d(holder.binding.category!!.id.toString())
                 showInstallPrompt(holder.binding.category!!.id)
             } else {
-                
+                val intent = Intent().setClassName(BuildConfig.APPLICATION_ID, "com.game.books.BooksActivity")
+                intent.putExtra(AppConstants.CATEGORY_ID_PARAM, holder.binding.category!!.id)
+                startActivity(intent)
             }
         }
     }
@@ -119,7 +119,7 @@ class CategoriesFragment : BaseFragment() {
         InstantApps.showInstallPrompt(
             activity!!,
             Intent().apply {
-                putExtra(AppConstants.ID_BOOK_PARAM, categoryId)
+                putExtra(AppConstants.CATEGORY_ID_PARAM, categoryId)
             },
             AppConstants.CATEGORIES_TO_BOOK_REQUEST,
             AppConstants.CATEGORIES_TO_BOOK_REQUEST_REFER

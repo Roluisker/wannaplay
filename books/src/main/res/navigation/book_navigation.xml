@@ -12,11 +12,19 @@
         app:enterAnim="@android:anim/fade_in"
         app:exitAnim="@android:anim/fade_out"
         tools:layout="@layout/fragment_books">
-
+        <argument
+            android:name="categoryId"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 
     <activity
         android:id="@+id/mainBookActivity"
         android:name="com.game.books.BooksActivity"
-        tools:layout="@layout/activity_main_book" />
+        tools:layout="@layout/activity_main_book">
+        <argument
+            android:name="categoryId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </activity>
 </navigation>
