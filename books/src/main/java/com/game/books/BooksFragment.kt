@@ -19,6 +19,7 @@ import com.game.books.adapter.GRID_COUNT
 import com.game.core.AppConstants
 import com.game.core.SpacesItemDecoration
 import com.game.core.model.ModuleInstallRequest
+import kotlinx.android.synthetic.main.fragment_books.*
 
 class BooksFragment : BaseFragment() {
 
@@ -58,6 +59,9 @@ class BooksFragment : BaseFragment() {
     private fun init() {
         booksViewModel.showInstallPanel.observe(binding.lifecycleOwner!!, Observer {
             binding.showInstallPanel = it
+            if(it){
+                installModuleAnimation.playAnimation()
+            }
         })
         booksViewModel.launchModuleRequest.observe(binding.lifecycleOwner!!, Observer {
             currentInstallModuleStatus(it)
