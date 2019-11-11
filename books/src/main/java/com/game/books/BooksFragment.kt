@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-//import androidx.navigation.fragment.navArgs
+
 import androidx.databinding.DataBindingUtil
 import com.game.books.adapter.BooksAdapter
 import com.game.books.adapter.BooksViewHolder
@@ -17,7 +17,6 @@ class BooksFragment : BaseFragment() {
 
     private lateinit var binding: FragmentBooksBinding
     private val booksViewModel = BooksViewModel(BooksRepositoryImpl())
-    //private val booksArgs: BooksActivityArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +38,10 @@ class BooksFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //Timber.d(booksArgs.categoryId.toString())
+        arguments?.let {
+            val safeArgs = BooksFragmentArgs.fromBundle(it)
+            Timber.d(safeArgs.categoryId.toString())
+        }
     }
 
     private fun initBooks(binding: FragmentBooksBinding) {
