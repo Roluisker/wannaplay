@@ -4,7 +4,6 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply from: '../config_module.gradle'
 
-
 android {
 
     compileSdkVersion versions.compileSdk
@@ -29,6 +28,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.firebase.core
+    api deps.firebase.core
     api deps.firebase.firestore
 }

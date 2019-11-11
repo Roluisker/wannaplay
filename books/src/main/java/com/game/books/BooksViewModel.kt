@@ -126,12 +126,4 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
     fun removeModuleInstallListener() {
         splitInstaller.unregisterListener(this)
     }
-    /*
-       val intent = Intent()
-       intent.setClassName(
-           com.game.bfinder.BuildConfig.APPLICATION_ID,
-           SEARCH_ACTIVITY_CLASSNAME
-       )
-       startActivity(view.context, intent, null)
-       */
 }
