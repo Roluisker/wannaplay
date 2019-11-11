@@ -49,34 +49,11 @@ class CategoriesFragment : BaseFragment() {
             binding.button2.hide()
         }*/
 
-        addOnClicks(binding)
-
         initCategories(viewModel, binding)
 
         binding.lifecycleOwner = this
 
         return binding
-    }
-
-    private fun addOnClicks(binding: FragmentCategoriesBinding) {
-        /*
-        binding.button2.setOnClickListener {
-            //openModule(AppConstants.BOOKS_MODULE_PATH)
-            val intent =
-                Intent().setClassName(BuildConfig.APPLICATION_ID, "com.game.books.BooksActivity")
-            startActivity(intent)
-        }
-
-        binding.button3.setOnClickListener {
-            (activity as MainActivity).loadAndLaunchModule(
-                ModuleInstallRequest(
-                    AppConstants.SEARCH_MODULE,
-                    SEARCH_ACTIVITY_CLASSNAME
-                )
-            )
-        }
-*/
-
     }
 
     private fun initCategories(viewModel: CategoriesViewModel, binding: FragmentCategoriesBinding) {
