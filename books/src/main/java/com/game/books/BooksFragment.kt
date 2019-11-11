@@ -32,6 +32,7 @@ class BooksFragment : BaseFragment() {
                 R.layout.fragment_books, container, false
             )
 
+        binding.booksViewModel = booksViewModel
         initBooks(binding)
 
         binding.lifecycleOwner = this

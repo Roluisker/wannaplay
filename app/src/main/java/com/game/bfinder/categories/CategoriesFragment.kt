@@ -20,10 +20,6 @@ import com.game.bfinder.categories.repository.CategoriesRepositoryImpl
 import com.google.android.instantapps.InstantApps
 import timber.log.Timber
 
-private const val PACKAGE_NAME = "com.group.pow"
-private const val PACKAGE_NAME_ONDEMAND = "$PACKAGE_NAME.search"
-private const val SEARCH_ACTIVITY_CLASSNAME = "$PACKAGE_NAME_ONDEMAND.SearchActivity"
-
 class CategoriesFragment : BaseFragment() {
 
     private lateinit var binding: FragmentCategoriesBinding
@@ -79,14 +75,8 @@ class CategoriesFragment : BaseFragment() {
                 )
             )
         }
+*/
 
-        binding.button4.setOnClickListener {
-            val intent = Intent().setClassName(
-                BuildConfig.APPLICATION_ID,
-                "com.group.pow.search.SearchActivity"
-            )
-            startActivity(intent)
-        }*/
     }
 
     private fun initCategories(viewModel: CategoriesViewModel, binding: FragmentCategoriesBinding) {
@@ -98,7 +88,6 @@ class CategoriesFragment : BaseFragment() {
                 CategoryItemClickListener()
             )
         }
-
     }
 
     private inner class CategoryItemClickListener :
