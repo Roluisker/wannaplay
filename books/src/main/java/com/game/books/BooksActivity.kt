@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation.findNavController
 import com.game.core.AppConstants
 import com.game.core.BaseActivity
+import com.google.firebase.FirebaseApp
 
 const val DEFAULT_TITLE = "Books Finder"
 

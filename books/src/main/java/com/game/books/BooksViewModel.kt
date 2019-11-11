@@ -14,6 +14,7 @@ import com.game.core.model.ModuleInstallRequest
 import com.google.android.play.core.splitinstall.*
 import com.game.core.model.ModuleInstallRequest.*
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.ArrayList
 
 private const val CONFIRMATION_REQUEST_CODE = 1

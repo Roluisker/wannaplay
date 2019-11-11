@@ -35,7 +35,7 @@ dependencies {
     implementation deps.general.androidPlayCore
 
     implementation project(':firebase')
-    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    //implementation 'com.google.firebase:firebase-analytics:17.2.0'
     annotationProcessor deps.lifecycle.compiler
 
     testImplementation deps.test.junit
