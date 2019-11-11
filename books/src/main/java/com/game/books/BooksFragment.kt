@@ -86,31 +86,31 @@ class BooksFragment : BaseFragment() {
             ModuleInstallRequest.InstallModuleStatus.INSTALLING -> onInstalling(currentRequest)
             ModuleInstallRequest.InstallModuleStatus.LOADING_MODULE -> updateProgressText(
                 getString(
-                    com.game.bfinder.R.string.loading_module
+                    R.string.loading_module
                 )
             )
             ModuleInstallRequest.InstallModuleStatus.ALREADY_INSTALLED -> onAlreadyInstalled(
                 currentRequest
             )
-            ModuleInstallRequest.InstallModuleStatus.DOWNLOADING -> updateProgressText(getString(com.game.bfinder.R.string.downloading))
+            ModuleInstallRequest.InstallModuleStatus.DOWNLOADING -> updateProgressText(getString(R.string.downloading))
             ModuleInstallRequest.InstallModuleStatus.INSTALLED -> onInstalled(currentRequest)
-            else -> updateProgressText(getString(com.game.bfinder.R.string.unkown))
+            else -> updateProgressText(getString(R.string.unkown))
         }
     }
 
     private fun onInstalled(currentRequest: ModuleInstallRequest) {
-        updateProgressText(getString(com.game.bfinder.R.string.installed))
+        updateProgressText(getString(R.string.installed))
         onSuccessfulLoad(currentRequest.moduleName, currentRequest.modulePath)
     }
 
     private fun onInstalling(currentRequest: ModuleInstallRequest) {
-        updateProgressText(getString(com.game.bfinder.R.string.installing))
+        updateProgressText(getString(R.string.installing))
         binding.maxProgress = currentRequest.maxProgress
         binding.currentProgress = currentRequest.currentProgress
     }
 
     private fun onAlreadyInstalled(currentRequest: ModuleInstallRequest) {
-        updateProgressText(getString(com.game.bfinder.R.string.already_installed))
+        updateProgressText(getString(R.string.already_installed))
         onSuccessfulLoad(currentRequest.moduleName, currentRequest.modulePath)
     }
 
