@@ -21,7 +21,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    api project(':resources')
     api deps.log.timber
     implementation deps.kotlin.stdlib
     api deps.lifecycle.extensions

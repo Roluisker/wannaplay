@@ -19,16 +19,8 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
-
-    dataBinding {
-        enabled true
-    }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':resources')
-    api deps.firebase.core
-    api deps.firebase.firestore
 }
