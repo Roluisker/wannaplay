@@ -2,16 +2,17 @@ package com.game.core.model.livedata
 
 import androidx.lifecycle.LiveData
 import com.game.core.model.Book
+import com.group.pow.resources.Resource
 
-class BooksLiveData private constructor(books: ArrayList<Book>) :
+class BooksLiveData private constructor(books: Resource<ArrayList<Book>>) :
     LiveData<ArrayList<Book>>() {
 
     init {
-        postValue(books)
+        postValue(books.data)
     }
 
     companion object {
-        fun create(books: ArrayList<Book>): LiveData<ArrayList<Book>> =
+        fun create(books: Resource<ArrayList<Book>>): LiveData<ArrayList<Book>> =
             BooksLiveData(books)
     }
 }

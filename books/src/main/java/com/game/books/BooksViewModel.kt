@@ -13,6 +13,7 @@ import com.game.core.model.Book
 import com.game.core.model.ModuleInstallRequest
 import com.google.android.play.core.splitinstall.*
 import com.game.core.model.ModuleInstallRequest.*
+import com.game.core.model.livedata.BooksLiveData
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.ArrayList
@@ -33,7 +34,7 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
 
     val books: LiveData<ArrayList<Book>> = Transformations
         .switchMap(_categoryId) { id ->
-            booksRepository.fetchBooks(id)
+            BooksLiveData.create(booksRepository.fetchBooks(id).value!!)
         }
 
     fun onClickBookSearch(view: View) {
