@@ -17,7 +17,6 @@ import timber.log.Timber
 import androidx.recyclerview.widget.GridLayoutManager
 import com.game.books.adapter.GRID_COUNT
 import com.game.core.AppConstants
-import com.game.core.BuildConfig
 import com.game.core.SpacesItemDecoration
 import com.game.core.model.ModuleInstallRequest
 
@@ -81,9 +80,14 @@ class BooksFragment : BaseFragment() {
     private fun currentInstallModuleStatus(currentRequest: ModuleInstallRequest) {
         when (currentRequest.currentStatus) {
             ModuleInstallRequest.InstallModuleStatus.INSTALLING -> onInstalling(currentRequest)
-            ModuleInstallRequest.InstallModuleStatus.LOADING_MODULE -> updateProgressText(getString(
-                com.game.bfinder.R.string.loading_module))
-            ModuleInstallRequest.InstallModuleStatus.ALREADY_INSTALLED -> onAlreadyInstalled(currentRequest)
+            ModuleInstallRequest.InstallModuleStatus.LOADING_MODULE -> updateProgressText(
+                getString(
+                    com.game.bfinder.R.string.loading_module
+                )
+            )
+            ModuleInstallRequest.InstallModuleStatus.ALREADY_INSTALLED -> onAlreadyInstalled(
+                currentRequest
+            )
             ModuleInstallRequest.InstallModuleStatus.DOWNLOADING -> updateProgressText(getString(com.game.bfinder.R.string.downloading))
             ModuleInstallRequest.InstallModuleStatus.INSTALLED -> onInstalled(currentRequest)
             else -> updateProgressText(getString(com.game.bfinder.R.string.unkown))

@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="showInstallPanel"
-            type="boolean" />
-
-        <variable
-            name="maxProgress"
-            type="Integer" />
-
-        <variable
-            name="currentProgress"
-            type="Integer" />
-
-    </data>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:id="@+id/installPanel"
@@ -29,8 +10,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="@{showInstallPanel ? View.GONE : View.VISIBLE}">
+            android:layout_height="match_parent">
 
             <fragment
                 android:id="@+id/mainNavigationHost"
@@ -43,30 +23,5 @@
 
         </FrameLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="@{showInstallPanel ? View.VISIBLE : View.GONE}">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:max="@{maxProgress}"
-                android:progress="@{currentProgress}" />
-
-            <TextView
-                android:id="@+id/currentTextProgress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
     </LinearLayout>
 </layout>
