@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.game.bfinder.R
 import com.game.bfinder.categories.CategoriesViewModel
 import com.game.bfinder.databinding.CategoryListItemBinding
+import com.game.core.AppConstants
 import com.game.core.model.Category
 import java.util.ArrayList
 
@@ -42,9 +43,9 @@ class CategoriesAdapter(
 
             var imageResource = R.drawable.ic_launcher_background
 
-            if (item.id == 1) {
+            if (item.id == AppConstants.ART_FICTION_CATEGORY) {
                 imageResource = R.drawable.art_category
-            } else if (item.id == 2) {
+            } else if (item.id == AppConstants.SCIENCE_FICTION_CATEGORY) {
                 imageResource = R.drawable.fiction_category
             }
             holder.binding.categoryImage.setImageResource(imageResource)

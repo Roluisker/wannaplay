@@ -8,6 +8,8 @@ class AppConstants {
         const val CATEGORIES_TO_BOOK_REQUEST = 35
         const val CATEGORIES_TO_BOOK_REQUEST_REFER = "refer_to_books"
         const val SEARCH_MODULE = "search"
+        const val SCIENCE_FICTION_CATEGORY = 2
+        const val ART_FICTION_CATEGORY = 1
         const val ACTIVITY_BOOK_PATH = "com.game.books.BooksActivity"
     }
 }
