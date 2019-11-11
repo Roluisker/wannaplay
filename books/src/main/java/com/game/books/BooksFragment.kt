@@ -12,6 +12,12 @@ import com.game.books.databinding.FragmentBooksBinding
 import com.game.books.repository.BooksRepositoryImpl
 import com.game.core.BaseFragment
 import timber.log.Timber
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.DividerItemDecoration
+import com.game.books.adapter.GRID_COUNT
+import com.game.core.SpacesItemDecoration
+
 
 class BooksFragment : BaseFragment() {
 
@@ -47,7 +53,9 @@ class BooksFragment : BaseFragment() {
 
     private fun initBooks(binding: FragmentBooksBinding) {
         binding.viewBooks.apply {
-            setHasFixedSize(true)
+            setHasFixedSize(false)
+            addItemDecoration(SpacesItemDecoration(resources.getDimensionPixelSize(R.dimen.books_space)))
+            layoutManager = GridLayoutManager(activity, GRID_COUNT)
             adapter = BooksAdapter(
                 booksViewModel,
                 this@BooksFragment,

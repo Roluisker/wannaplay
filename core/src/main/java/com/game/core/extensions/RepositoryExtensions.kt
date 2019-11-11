@@ -15,7 +15,14 @@ fun BaseRepository.defaultCategories(): ArrayList<Category> = ArrayList<Category
 
 fun BaseRepository.defaultBooks(): ArrayList<Book> = ArrayList<Book>().apply {
     add(Book(1, "pjoj", "sdasd", "tet"))
-    add(Book(1, "dfg sfsf", "sdasd", "tet"))
+    add(Book(2, "dfg sfsf", "sdasd", "tet"))
+    add(Book(3, "dfg sfsf", "sdasd", "tet"))
+    add(Book(4, "dfg sfsf", "sdasd", "tet"))
+    add(Book(5, "dfg sfsf", "sdasd", "tet"))
+    add(Book(6, "dfg sfsf", "sdasd", "tet"))
+    add(Book(7, "dfg sfsf", "sdasd", "tet"))
+    add(Book(8, "dfg sfsf", "sdasd", "tet"))
+    add(Book(9, "dfg sfsf", "sdasd", "tet"))
 }
 
 /*

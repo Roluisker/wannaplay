@@ -11,23 +11,18 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground">
 
-        <TextView
-            android:id="@+id/bookTitle"
+        <ImageView
+            android:id="@+id/bookImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@{book.title}"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/grieff_medina_book"
             tools:text="Example" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
