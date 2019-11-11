@@ -13,11 +13,8 @@ import com.game.books.repository.BooksRepositoryImpl
 import com.game.core.BaseFragment
 import timber.log.Timber
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.game.books.adapter.GRID_COUNT
 import com.game.core.SpacesItemDecoration
-
 
 class BooksFragment : BaseFragment() {
 
