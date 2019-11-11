@@ -3,6 +3,7 @@
     package="com.group.pow.search">
 
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -25,7 +26,8 @@
 
         <activity
             android:name="com.group.pow.search.SearchActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
 
             <!--
             <intent-filter android:order="3" android:autoVerify="true">

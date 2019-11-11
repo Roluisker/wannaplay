@@ -1,6 +1,7 @@
 package com.game.books
 
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation.findNavController
 import com.game.core.AppConstants
 import com.game.core.BaseActivity
@@ -11,6 +12,8 @@ class BooksActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_book)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(ContextCompat.getDrawable(this, R.drawable.ic_arrow))
         findNavController(this,  R.id.booksNavigationHost).setGraph(R.navigation.book_navigation, bookBundle())
     }
 
