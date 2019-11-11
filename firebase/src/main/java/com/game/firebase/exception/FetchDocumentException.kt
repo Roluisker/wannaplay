@@ -1,4 +1,4 @@
-package com.group.pow.firebase.exception
+package com.game.firebase.exception
 
 import com.google.firebase.firestore.FirebaseFirestoreException
 

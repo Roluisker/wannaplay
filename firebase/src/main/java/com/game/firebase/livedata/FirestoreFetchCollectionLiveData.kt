@@ -1,10 +1,10 @@
 package com.game.firebase.livedata
 
 import androidx.lifecycle.LiveData
+import com.game.firebase.exception.FetchDocumentException
 import com.game.firebase.response.FirebaseApiResponse
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestoreException
-import com.group.pow.firebase.exception.FetchDocumentException
 import java.util.ArrayList
 
 typealias DocumentListSnapshotOrException = FirebaseApiResponse<ArrayList<Map<String, Any>>?, FirebaseFirestoreException?>

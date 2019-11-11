@@ -13,11 +13,7 @@ import com.game.core.model.Book
 import com.game.core.model.ModuleInstallRequest
 import com.google.android.play.core.splitinstall.*
 import com.game.core.model.ModuleInstallRequest.*
-import com.game.core.model.livedata.BooksLiveData
-import com.game.core.response.BooksDocumentSnapshotDeserializer
-import com.game.firebase.response.DeserializeListDocumentSnapshotTransform
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
-import com.google.firebase.firestore.FirebaseFirestore
 import com.group.pow.resources.Resource
 import java.util.ArrayList
 
@@ -35,24 +31,10 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
     val showInstallPanel: MutableLiveData<Boolean> = MutableLiveData()
     val launchModuleRequest: MutableLiveData<ModuleInstallRequest> = MutableLiveData()
 
-    /*
-    val books: LiveData<ArrayList<Book>> = Transformations
-        .switchMap(_categoryId) { id ->
-                booksRepository.fetchBooks(id)
-        }
-        */
-
     val books: LiveData<Resource<ArrayList<Book>>> = Transformations
         .switchMap(_categoryId) { id ->
             booksRepository.fetchBooks(id)
         }
-
-    /*
-      return Transformations.map(
-                booksRepository.fetchBooks(id),
-                BooksTransformation()
-            )
-     */
 
     fun onClickBookSearch(view: View) {
         loadAndLaunchModule(ModuleInstallRequest(AppConstants.SEARCH_MODULE, SEARCH_ACTIVITY_CLASSNAME))
