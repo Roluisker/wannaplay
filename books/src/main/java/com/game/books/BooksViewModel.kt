@@ -103,13 +103,13 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
 
     private fun currentInstallModuleStatus(status: InstallModuleStatus) {
         launchModuleRequest.value?.currentStatus = status
-        launchModuleRequest.postValue(launchModuleRequest?.value)
+        launchModuleRequest.postValue(launchModuleRequest.value)
     }
 
     private fun currentDownloadingState(state: SplitInstallSessionState) {
         launchModuleRequest.value?.maxProgress = state.totalBytesToDownload().toInt()
         launchModuleRequest.value?.currentProgress = state.bytesDownloaded().toInt()
-        launchModuleRequest.postValue(launchModuleRequest?.value)
+        launchModuleRequest.postValue(launchModuleRequest.value)
     }
 
     private fun isInstallPanelVisible(visible: Boolean) {

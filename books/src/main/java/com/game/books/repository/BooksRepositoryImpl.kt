@@ -14,7 +14,7 @@ class BooksRepositoryImpl : BaseRepository(), BooksRepository {
 
     private val booksCollection = FirebaseFirestore.getInstance().collection("books")
 
-    override fun fetchBooks(categoryId: Int): LiveData<Resource<ArrayList<Book>>> {
+    override fun fetchBooks(idCategory: Int): LiveData<Resource<ArrayList<Book>>> {
         val documentLiveData = FirestoreFetchCollectionLiveData(booksCollection)
         return Transformations.map(
             documentLiveData,

@@ -17,7 +17,7 @@ class FirestoreFetchCollectionLiveData(ref: CollectionReference) : LiveData<Docu
                 var result = ArrayList<Map<String, Any>>()
 
                 documents.forEach {
-                    it.data?.let { docuMap ->
+                    it.data.let { docuMap ->
                         result.add(docuMap)
                     }
                 }
