@@ -37,18 +37,8 @@ class CategoriesAdapter(
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val item = getItem(position)
-
         if (item != null) {
             holder.binding.category = item
-
-            var imageResource = R.drawable.ic_launcher_background
-
-            if (item.id == AppConstants.ART_FICTION_CATEGORY) {
-                imageResource = R.drawable.art_category
-            } else if (item.id == AppConstants.SCIENCE_FICTION_CATEGORY) {
-                imageResource = R.drawable.fiction_category
-            }
-            holder.binding.categoryImage.setImageResource(imageResource)
         }
     }
 

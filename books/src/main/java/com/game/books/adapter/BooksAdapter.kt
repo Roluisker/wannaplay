@@ -37,7 +37,6 @@ class BooksAdapter(
 
     override fun onBindViewHolder(holder: BooksViewHolder, position: Int) {
         val item = getItem(position)
-
         if (item != null) {
             holder.binding.book = item
         }

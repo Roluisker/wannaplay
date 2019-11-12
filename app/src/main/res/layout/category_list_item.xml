@@ -23,6 +23,7 @@
             android:id="@+id/categoryImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:imageId="@{category.id}"
             tools:background="@drawable/art_category" />
 
         <TextView
