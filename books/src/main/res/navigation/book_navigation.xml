@@ -9,7 +9,7 @@
         android:id="@+id/books"
         android:name="com.game.books.BooksFragment"
         android:label="fragment_list_books"
-        app:enterAnim="@android:anim/fade_in"
+        app:enterAnim="@anim/slide_out_left"
         app:exitAnim="@android:anim/fade_out"
         tools:layout="@layout/fragment_books">
         <argument
