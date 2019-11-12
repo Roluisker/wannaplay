@@ -19,6 +19,7 @@ import com.game.books.adapter.GRID_COUNT
 import com.game.core.AppConstants
 import com.game.core.SpacesItemDecoration
 import com.game.core.model.ModuleInstallRequest
+import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.fragment_books.*
 
 class BooksFragment : BaseFragment() {

@@ -8,11 +8,12 @@ class BooksDocumentSnapshotDeserializer : ListDocumentSnapshotDeserializer<Array
         return ArrayList<Book>().apply {
             input.forEach { book ->
                 add(
-                    Book(0, book["title"] as String,
-                    book["description"] as String,
-                    book["image"] as String
-                ))
-
+                    Book(
+                        book["title"] as String,
+                        book["description"] as String,
+                        book["image"] as String
+                    )
+                )
             }
         }
     }

@@ -6,11 +6,14 @@ import androidx.navigation.Navigation.findNavController
 import com.game.core.AppConstants
 import com.game.core.BaseActivity
 import com.google.firebase.FirebaseApp
+import com.google.firebase.FirebaseOptions
 
 const val DEFAULT_TITLE = "Books Finder"
 
 class BooksActivity : BaseActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        initFirebase()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_book)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -44,5 +47,20 @@ class BooksActivity : BaseActivity() {
             else -> currentTitle = "Art"
         }
         title = currentTitle
+    }
+
+    //TODO: where?
+    private fun initFirebase() {
+        try {
+            FirebaseApp.getInstance()
+        } catch (error: Exception) {
+            val options = FirebaseOptions.Builder()
+                .setApplicationId("")
+                .setProjectId("")
+                .setGcmSenderId(null)
+                .setApiKey("")
+                .build()
+            FirebaseApp.initializeApp(this, options)
+        }
     }
 }

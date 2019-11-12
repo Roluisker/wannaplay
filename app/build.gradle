@@ -33,9 +33,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':core')
     implementation deps.general.androidPlayCore
-
-    implementation project(':firebase')
-    //implementation 'com.google.firebase:firebase-analytics:17.2.0'
     annotationProcessor deps.lifecycle.compiler
 
     testImplementation deps.test.junit
@@ -52,6 +49,3 @@ dependencies {
 
     testImplementation deps.test.extJunit
 }
-
-apply plugin: deps.gmsServices.plugin
-
