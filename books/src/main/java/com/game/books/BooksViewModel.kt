@@ -33,7 +33,7 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
 
     val books: LiveData<Resource<ArrayList<Book>>> = Transformations
         .switchMap(_categoryId) { id ->
-            booksRepository.fetchBooks(id)
+            booksRepository.fetchBooksByCategory(id)
         }
 
     fun onClickBookSearch(view: View) {
