@@ -21,10 +21,9 @@
 
         <ImageView
             android:id="@+id/categoryImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:imageId="@{category.id}"
-            tools:background="@drawable/art_category" />
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:imageId="@{category.id}" />
 
         <TextView
             android:id="@+id/categoryTitle"
@@ -39,6 +38,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Example" />
-
     </LinearLayout>
 </layout>

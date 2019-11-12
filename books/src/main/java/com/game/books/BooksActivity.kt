@@ -41,7 +41,7 @@ class BooksActivity : BaseActivity() {
         var currentTitle = DEFAULT_TITLE
 
         when {
-            AppConstants.ART_FICTION_CATEGORY != categoryId -> if (AppConstants.SCIENCE_FICTION_CATEGORY == categoryId){
+            AppConstants.ART_CATEGORY != categoryId -> if (AppConstants.SCIENCE_FICTION_CATEGORY == categoryId){
                 currentTitle = "Science Fiction"
             }
             else -> currentTitle = "Art"

@@ -5,10 +5,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import com.game.bfinder.R
 import com.game.bfinder.categories.CategoriesViewModel
 import com.game.bfinder.databinding.CategoryListItemBinding
-import com.game.core.AppConstants
 import com.game.core.model.Category
 import java.util.ArrayList
 

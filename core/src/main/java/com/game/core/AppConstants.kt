@@ -9,8 +9,10 @@ class AppConstants {
         const val CATEGORIES_TO_BOOK_REQUEST_REFER = "refer_to_books"
         const val SEARCH_MODULE = "search"
         const val SCIENCE_FICTION_CATEGORY = 2
-        const val ART_FICTION_CATEGORY = 1
+        const val ART_CATEGORY = 1
         const val BOOKS_NAME_COLLECTION = "books"
+        const val ART_CATEGORY_URL = "https://i.ibb.co/FKBVppG/art-category-new-size.png"
+        const val SCIENCE_FICTION_CATEGORY_URL = "https://i.ibb.co/fxrkS6M/fiction-category-new-size.png"
         const val ACTIVITY_BOOK_PATH = "com.game.books.BooksActivity"
     }
 }

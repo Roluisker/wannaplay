@@ -2,15 +2,16 @@ package com.game.bfinder.categories
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.game.bfinder.R
 import com.game.core.AppConstants
+import com.squareup.picasso.Picasso
 
 @BindingAdapter("imageId")
 fun loadCategoryImage(view: ImageView, categoryId: Int) {
-    var imageResource = when (categoryId) {
-        AppConstants.ART_FICTION_CATEGORY -> R.drawable.art_category
-        AppConstants.SCIENCE_FICTION_CATEGORY -> R.drawable.fiction_category
-        else -> R.drawable.ic_launcher_background
+    var url = when (categoryId) {
+        AppConstants.ART_CATEGORY ->  AppConstants.ART_CATEGORY_URL
+        AppConstants.SCIENCE_FICTION_CATEGORY ->AppConstants.SCIENCE_FICTION_CATEGORY_URL
+        else -> ""
     }
-    view.setImageResource(imageResource)
+
+    Picasso.get().load(url).into(view)
 }
