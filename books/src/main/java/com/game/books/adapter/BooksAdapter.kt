@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import com.game.bfinder.R
 import com.game.books.BooksViewModel
 import com.game.books.databinding.BookListItemBinding
 import com.game.core.model.Book
@@ -41,7 +40,6 @@ class BooksAdapter(
 
         if (item != null) {
             holder.binding.book = item
-            holder.binding.bookImage.setImageResource(R.drawable.grieff_medina_book)
         }
     }
 
@@ -58,3 +56,4 @@ class BooksAdapter(
         fun onItemClick(holder: BooksViewHolder)
     }
 }
+
