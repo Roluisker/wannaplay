@@ -10,6 +10,7 @@ class AppConstants {
         const val SEARCH_MODULE = "search"
         const val SCIENCE_FICTION_CATEGORY = 2
         const val ART_FICTION_CATEGORY = 1
+        const val BOOKS_NAME_COLLECTION = "books"
         const val ACTIVITY_BOOK_PATH = "com.game.books.BooksActivity"
     }
 }

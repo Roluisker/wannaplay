@@ -19,7 +19,7 @@ import com.game.books.adapter.GRID_COUNT
 import com.game.core.AppConstants
 import com.game.core.SpacesItemDecoration
 import com.game.core.model.ModuleInstallRequest
-import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_books.*
 
 class BooksFragment : BaseFragment() {
@@ -31,7 +31,7 @@ class BooksFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        booksViewModel = BooksViewModel(BooksRepositoryImpl(), context!!)
+        booksViewModel = BooksViewModel(BooksRepositoryImpl(FirebaseFirestore.getInstance()), context!!)
 
         binding =
             DataBindingUtil.inflate(
