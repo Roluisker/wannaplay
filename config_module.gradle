@@ -1,13 +1,25 @@
+def secretsFile = rootProject.file("secrets.properties")
+def properties = new Properties()
+properties.load(new FileInputStream(secretsFile))
+
 android {
+
+    def firestoreAppIdName = "FIRESTORE_APP_ID_NAME"
+    def firestoreProjectIdName = "FIRESTORE_PROJECT_ID_NAME"
+    def firestoreApiKeyName = "FIRESTORE_API_KEY"
 
     buildTypes {
         release {
             minifyEnabled false
-            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", firestoreAppIdName, properties['FIRESTORE_APP_ID']
+            buildConfigField "String", firestoreProjectIdName, properties['FIRESTORE_PROJECT_ID']
+            buildConfigField "String", firestoreApiKeyName, properties['FIRESTORE_API_KEY']
         }
         debug {
             minifyEnabled false
-            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", firestoreAppIdName, properties['FIRESTORE_APP_ID']
+            buildConfigField "String", firestoreProjectIdName, properties['FIRESTORE_PROJECT_ID']
+            buildConfigField "String", firestoreApiKeyName, properties['FIRESTORE_API_KEY']
         }
     }
 

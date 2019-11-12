@@ -16,7 +16,6 @@ android {
         versionName versions.moduleVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
 }
 
 dependencies {

@@ -55,10 +55,10 @@ class BooksActivity : BaseActivity() {
             FirebaseApp.getInstance()
         } catch (error: Exception) {
             val options = FirebaseOptions.Builder()
-                .setApplicationId("")
-                .setProjectId("")
+                .setApplicationId(BuildConfig.FIRESTORE_APP_ID_NAME)
+                .setProjectId(BuildConfig.FIRESTORE_PROJECT_ID_NAME)
                 .setGcmSenderId(null)
-                .setApiKey("")
+                .setApiKey(BuildConfig.FIRESTORE_API_KEY)
                 .build()
             FirebaseApp.initializeApp(this, options)
         }

@@ -4,10 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Bfinder.iml" filepath="$PROJECT_DIR$/Bfinder.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resources/bfinder-resources.iml" filepath="$PROJECT_DIR$/resources/bfinder-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/search/bfinder-search.iml" filepath="$PROJECT_DIR$/search/bfinder-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/books/books.iml" filepath="$PROJECT_DIR$/books/books.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/firebase/firebase.iml" filepath="$PROJECT_DIR$/firebase/firebase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/meet/meet.iml" filepath="$PROJECT_DIR$/meet/meet.iml" />
       <module fileurl="file://$PROJECT_DIR$/resources/resources.iml" filepath="$PROJECT_DIR$/resources/resources.iml" />
       <module fileurl="file://$PROJECT_DIR$/search/search.iml" filepath="$PROJECT_DIR$/search/search.iml" />
       <module fileurl="file://$PROJECT_DIR$/wannaplay-Bfinder.iml" filepath="$PROJECT_DIR$/wannaplay-Bfinder.iml" />
