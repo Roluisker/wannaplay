@@ -1,3 +1,11 @@
+/*
+ * Luis A. Bejarano Sánchez
+ *
+ * github.com/Roluisker
+ *
+ * Proof of concept Intant, Demand, Modules, Architecture components
+ *
+ */
 package com.game.books
 
 import android.content.Context
@@ -35,11 +43,7 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
         .switchMap(_categoryId) { id ->
             booksRepository.fetchBooksByCategory(id)
         }
-
-    fun onClickBookSearch(view: View) {
-        loadAndLaunchModule(ModuleInstallRequest(AppConstants.SEARCH_MODULE, SEARCH_ACTIVITY_CLASSNAME))
-    }
-
+    
     fun searchByCategoryId(categoryId: Int) {
         _categoryId.value = categoryId
     }
@@ -126,5 +130,9 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
 
     fun removeModuleInstallListener() {
         splitInstaller.unregisterListener(this)
+    }
+
+    fun onClickBookSearch(view: View) {
+        loadAndLaunchModule(ModuleInstallRequest(AppConstants.SEARCH_MODULE, SEARCH_ACTIVITY_CLASSNAME))
     }
 }

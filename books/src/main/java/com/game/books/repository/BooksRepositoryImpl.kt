@@ -1,3 +1,11 @@
+/*
+ * Luis A. Bejarano Sánchez
+ *
+ * github.com/Roluisker
+ *
+ * Proof of concept Intant, Demand, Modules, Architecture components
+ *
+ */
 package com.game.books.repository
 
 import androidx.lifecycle.LiveData
@@ -10,6 +18,7 @@ import com.game.firebase.livedata.FirestoreFetchCollectionLiveData
 import com.game.firebase.response.DeserializeListDocumentSnapshotTransform
 import com.google.firebase.firestore.FirebaseFirestore
 import com.group.pow.resources.Resource
+
 
 class BooksRepositoryImpl(private val fireStore: FirebaseFirestore) : BaseRepository(),
     BooksRepository {

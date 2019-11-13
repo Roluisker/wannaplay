@@ -1,4 +1,12 @@
-package com.game.core
+/*
+ * Luis A. Bejarano Sánchez
+ *
+ * github.com/Roluisker
+ *
+ * Proof of concept Intant, Demand, Modules, Architecture components
+ *
+ */
+package com.game.core.adapter
 
 import android.graphics.Rect
 import android.view.View

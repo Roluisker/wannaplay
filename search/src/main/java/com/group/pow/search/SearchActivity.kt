@@ -1,3 +1,11 @@
+/*
+ * Luis A. Bejarano Sánchez
+ *
+ * github.com/Roluisker
+ *
+ * Proof of concept Intant, Demand, Modules, Architecture components
+ *
+ */
 package com.group.pow.search
 
 import android.os.Bundle
