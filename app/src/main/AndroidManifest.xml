@@ -54,10 +54,10 @@
                               android:scheme="https" />
                       </intent-filter>
                       -->
-            <!--
+
             <meta-data
                 android:name="default-url"
-                android:value="http://bfinder-instant.com" />-->
+                android:value="http://bfinder-instant.com" />
 
         </activity>
 
