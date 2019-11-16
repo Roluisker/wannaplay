@@ -98,7 +98,7 @@ class BooksFragment : BaseFragment() {
 
     private fun currentInstallModuleStatus(currentRequest: ModuleInstallRequest) {
         when (currentRequest.currentStatus) {
-            ModuleInstallRequest.InstallModuleStatus.INSTALLING -> onInstalling(currentRequest)
+            ModuleInstallRequest.InstallModuleStatus.INSTALLING -> updateProgressText(getString(R.string.installing))
             ModuleInstallRequest.InstallModuleStatus.LOADING_MODULE -> updateProgressText(
                 getString(
                     R.string.loading_module
@@ -107,7 +107,7 @@ class BooksFragment : BaseFragment() {
             ModuleInstallRequest.InstallModuleStatus.ALREADY_INSTALLED -> onAlreadyInstalled(
                 currentRequest
             )
-            ModuleInstallRequest.InstallModuleStatus.DOWNLOADING -> updateProgressText(getString(R.string.downloading))
+            ModuleInstallRequest.InstallModuleStatus.DOWNLOADING -> onDownloading(currentRequest)
             ModuleInstallRequest.InstallModuleStatus.INSTALLED -> onInstalled(currentRequest)
             else -> updateProgressText(getString(R.string.unkown))
         }
@@ -118,8 +118,8 @@ class BooksFragment : BaseFragment() {
         onSuccessfulLoad(currentRequest.moduleName, currentRequest.modulePath)
     }
 
-    private fun onInstalling(currentRequest: ModuleInstallRequest) {
-        updateProgressText(getString(R.string.installing))
+    private fun onDownloading(currentRequest: ModuleInstallRequest) {
+        updateProgressText(getString(R.string.downloading))
         binding.maxProgress = currentRequest.maxProgress
         binding.currentProgress = currentRequest.currentProgress
     }

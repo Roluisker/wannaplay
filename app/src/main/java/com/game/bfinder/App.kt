@@ -8,10 +8,10 @@
  */
 package com.game.bfinder
 
-import android.app.Application
+import com.google.android.play.core.splitcompat.SplitCompatApplication
 import timber.log.Timber
 
-class App : Application() {
+class App : SplitCompatApplication() {
     override fun onCreate() {
         super.onCreate()
         BuildConfig.DEBUG.takeIf { true }.apply { Timber.plant(Timber.DebugTree()) }

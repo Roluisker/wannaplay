@@ -69,11 +69,12 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
         when (state.status()) {
             SplitInstallSessionStatus.DOWNLOADING -> {
                 currentInstallModuleStatus(InstallModuleStatus.DOWNLOADING)
+                currentDownloadingState(state)
             }
             SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
                 splitInstaller.startConfirmationDialogForResult(
                     state,
-                    context as MainActivity,
+                    context as BooksActivity,
                     CONFIRMATION_REQUEST_CODE
                 )
             }
@@ -82,7 +83,6 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
             }
             SplitInstallSessionStatus.INSTALLING -> {
                 currentInstallModuleStatus(InstallModuleStatus.INSTALLING)
-                currentDownloadingState(state)
             }
             SplitInstallSessionStatus.FAILED -> {
                 currentInstallModuleStatus(InstallModuleStatus.FAILED)
