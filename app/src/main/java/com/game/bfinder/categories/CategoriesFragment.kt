@@ -51,16 +51,8 @@ class CategoriesFragment : BaseFragment() {
         viewModel: CategoriesViewModel,
         binding: FragmentCategoriesBinding
     ): FragmentCategoriesBinding {
-
-        /*
-        if (InstantApps.isInstantApp(context!!)) {
-            binding.button2.hide()
-        }*/
-
         initCategories(viewModel, binding)
-
         binding.lifecycleOwner = this
-
         return binding
     }
 

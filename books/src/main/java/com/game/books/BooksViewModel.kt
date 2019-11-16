@@ -9,7 +9,9 @@
 package com.game.books
 
 import android.content.Context
+import android.os.Handler
 import android.view.View
+import androidx.core.os.BuildCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -43,7 +45,7 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
         .switchMap(_categoryId) { id ->
             booksRepository.fetchBooksByCategory(id)
         }
-    
+
     fun searchByCategoryId(categoryId: Int) {
         _categoryId.value = categoryId
     }
@@ -79,6 +81,7 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
                 )
             }
             SplitInstallSessionStatus.INSTALLED -> {
+                updateContext()
                 currentInstallModuleStatus(InstallModuleStatus.INSTALLED)
             }
             SplitInstallSessionStatus.INSTALLING -> {
@@ -102,6 +105,12 @@ class BooksViewModel(booksRepository: BooksRepository, private val context: Cont
             SplitInstallSessionStatus.UNKNOWN -> {
 
             }
+        }
+    }
+
+    private fun updateContext() {
+        if (BuildCompat.isAtLeastO()) {
+            SplitInstallHelper.updateAppInfo(context)
         }
     }
 

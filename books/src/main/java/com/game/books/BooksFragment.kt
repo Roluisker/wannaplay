@@ -39,7 +39,7 @@ class BooksFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        booksViewModel = BooksViewModel(BooksRepositoryImpl(FirebaseFirestore.getInstance()), context!!)
+        booksViewModel = BooksViewModel(BooksRepositoryImpl(FirebaseFirestore.getInstance()), activity!!)
 
         binding =
             DataBindingUtil.inflate(
