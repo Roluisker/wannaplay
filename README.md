@@ -3,6 +3,7 @@
 MVVM
 Kotlin
 Modular App 
-OnDemand modules
-Native tensorflow object recognition
+OnDemand module for Native tensorflow object recognition
 Firebase
+
+file secretis.properties for firebases keys.
