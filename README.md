@@ -3,7 +3,6 @@
 MVVM
 Kotlin
 Modular App 
-OnDemand module.
 Native tensorflow object recognition
 Firebase
 
